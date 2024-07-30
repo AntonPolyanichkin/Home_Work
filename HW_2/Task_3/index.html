@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task_3</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="task1.js"></script>
+</head>
+<body>
+	<H1> Task_3 </H1>
+	<p> Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби. </p>
+	<script>
+//Step 0.
+//Num - випадкове число
+//FirstAttempt
+//SecondAttempt
+//Step 1.
+alert(`Вгадай число`)
+let Num= 1+ Math.floor(Math.random()*5)
+let FirstAttempt= parseInt(prompt('Перша спроба, введіть число', '1'))
+//Step 2.
+if(FirstAttempt!=Num){
+	alert(`Ви невгадали число`)
+	let SecondAttempt= parseInt(prompt('Друга спроба, введіть число', '1'))
+	if(SecondAttempt!=Num)
+	alert(`Ваші попитки вичерпані, правильне число= ${Num}`)
+}
+else alert(`Ура, ви вгадали! Правильна відповідь - ${Num}`)
+</script>
+<br>
+<br>
+<a href="../index.html"> Повернутись назад </a>
+</body>
+</html>

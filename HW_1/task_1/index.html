@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task_1</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="task1.js"></script>
+</head>
+<body>
+	<H1> Task1 </H1>
+	<p> Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці.</p>
+	<script>//Таким чином, я ввожу дані
+	let firstNum = parseFloat(prompt('Введіть перше число, 0'))
+	let secondNum = parseFloat(prompt('Введіть друге число, 0'))
+	//Після вводу обчислюємо
+	const sum = firstNum+secondNum
+	const product = firstNum*secondNum
+	const fraction = firstNum/secondNum
+	// виводимо результат у формі таблиці
+	document.write(`
+	<table>
+		<tr>
+			<th>Шуканий результат</th>
+			<th>Отримане значення</th>
+		</tr>
+		<tr>
+			<th>Сума</th>
+			<td>${sum}</td>
+		</tr>
+		<tr>
+			<th>Добуток</th>
+			<td>${product}</td>
+		</tr>
+	<tr>
+			<th>Частка</th>
+			<td>${fraction}</td>
+		</tr>
+		</table>
+	`)</script>
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+</html>

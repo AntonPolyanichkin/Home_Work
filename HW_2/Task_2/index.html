@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task_2</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="task1.js"></script>
+</head>
+<body>
+	<H1> Task_2 </H1>
+	<p>З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн. </p>
+	<script>
+//Step 0.
+//Price - ціна товару
+//Money - кількість грошей
+//ticket - лотерея
+//Step 1.
+let Price= parseFloat(prompt('Ціна товару', '0'))
+let Money= parseFloat(prompt('Кількість грошей', '0'))
+let ticket= 4
+//Step 2. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+if(Price>Money){
+alert(`Недостатньо грошей`)
+if(Money>ticket)
+alert(`Чи бажаєте купити лотерею за 4 грн ?`)
+}
+else alert(`Дякуємо за покупку, приходьте ще`)
+</script>
+<br>
+<br>
+<a href="../index.html"> Повернутись назад </a>
+</body>
+</html>

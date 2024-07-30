@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Task7</h1>
+<p>Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера дня (від 0 до 6).</p>
+<script>
+//Month - якийсь випадковий місяць
+//day - якийсь випадковий день
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+let Month = getRandomInt((12));
+let day = (getRandomInt(6));
+const MonthDay = Month+day
+document.write(`<br> <br> <style>
+table, th, td {
+  border:1px solid black;
+  padding: 10px;
+}
+</style>
+<table>
+ <tr> <td> Випадковий місяць = ${Month} </td> </tr>
+ <br>
+ <tr> <td> випалковий день = ${day } </td> </tr>
+ <br>
+ <tr> <td> Сума випадкового номера місяця та дня = ${MonthDay} </td> </tr>
+ </table>`)
+ // Будь ласка, поясніть на уроці, адже не розумію, як воно працює 
+</script>
+<a href="../index.html"> Повернутись назад </a>
+</body>

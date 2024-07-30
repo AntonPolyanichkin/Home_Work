@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Task5</h1>
+<p>Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.</p>
+<script>
+//Seconds - кількість секунд, що пройшла від початку доби
+let Seconds = parseFloat(prompt('Кількість секунд, що пройшла від початку доби', '0'))
+//Обчислення. Якась кількість секунд. 3600секунд в годині. 60 секунд в хвилині.
+const Hours = Math.floor(Seconds/3600)
+const Minute = Math.floor(Seconds%3600/60)
+const Sec = Math.floor(Seconds%60)
+document.write(`<br> <br> Вказана Вами кількість секунд = ${Seconds} 
+<br> Години = ${Hours}, хвилини = ${Minute}, секунди = ${Sec}`)
+</script>
+<a href="../index.html"> Повернутись назад </a>
+</body>

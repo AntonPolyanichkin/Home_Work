@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_1</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="task1.js"></script>
+  </head>
+  <body>
+    <h1>Task1</h1>
+    <p>
+      З клавіатури вводяться імена двох дітей та кількість у них цукерок.
+      Вивести не екран ім’я тієї дитини, у якої кількість цукерок є більшою, або
+      вивести, що кількість однакова.
+    </p>
+    <script>
+      //Крок 0. Позначення
+      //FirstName
+      //CandyFirstName
+      //SecondName
+      //CandySecondName
+      //Крок 1. Введення даних
+      let FirstName = prompt("Імʼя першої дитини", "Мартин");
+      let CandyFirstName = parseInt(prompt("Кількість цукерок", "0"));
+      let SecondName = prompt("Імʼя другої дитини", "Aня");
+      let CandySecondName = parseInt(prompt("Кількість цукерок", "0"));
+      //Крок 2. Виведення
+      if (
+        CandyFirstName > CandySecondName ||
+        CandyFirstName === CandySecondName
+      ) {
+        if (CandyFirstName > CandySecondName) alert(`${FirstName}`);
+        if (CandyFirstName === CandySecondName) alert(`Рівна кількість`);
+      } else alert(`${SecondName}`);
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

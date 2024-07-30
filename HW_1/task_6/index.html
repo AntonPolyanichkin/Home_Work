@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Task6</h1>
+<p>З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.</p>
+<script>
+//priceFirstproduct - вартість за перший товар 
+//priceSecondproduct - вартість другого товару 
+//priceThirdproduct - вартість третього товару 
+//quantityFirstproduct - кількість першого товару 
+//quantitySecondproduct - кількість другого товару 
+//quantityThirdproduct - кількість третього товару 
+let priceFirstproduct = parseFloat(prompt('Вартість першого товару', '0'))
+let quantityFirstproduct = parseInt(prompt('Кількість першого товару', '0'))
+let priceSecondproduct = parseFloat(prompt('Вартість другого товару', '0'))
+let quantitySecondproduct = parseInt(prompt('Кількість другого товару', '0'))
+let priceThirdproduct = parseFloat(prompt('Вартість третього товару', '0'))
+let quantityThirdproduct = parseInt(prompt('Кількість третього товару', '0'))
+//Обчислення
+const Firstproduct = priceFirstproduct*quantityFirstproduct
+const Secondproduct = priceSecondproduct*quantitySecondproduct
+const Thirdproduct = priceThirdproduct*quantityThirdproduct
+const AllSum = Firstproduct+Secondproduct+Thirdproduct
+document.write(` <br> <br> <style>
+table, th, td {
+  border:1px solid black;
+  padding: 30px;
+}
+</style>
+<table>
+ <caption> Чек </caption> 
+ <tr> <td> Перший товар = ${Firstproduct} </td> </tr>
+ <br>
+ <tr> <td> Другий товар = ${Secondproduct} </td> </tr>
+ <br>
+ <tr> <td> Третій товар = ${Thirdproduct} </td> </tr>
+ <br>
+ <tr> <td> Загальна сума = ${AllSum} </td> </tr>
+ </table>`)
+</script>
+<a href="../index.html"> Повернутись назад </a>
+</body>

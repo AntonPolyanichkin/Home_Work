@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task_0</title>
+	<link rel="stylesheet" href="style.css">
+	<script defer src="scripts_task0/task_0.js"></script>
+</head>
+<body>
+<div class="task_0">Обчислити значення виразів:</div>
+<img class="taskIMG_0"  src="img/Знімок екрана 2024-07-25 о 01.02.05.png" alt="">
+<div class="solution">
+<script>
+   let a = parseFloat(prompt('Введіть число','a'))
+	let b = parseFloat(prompt('Введіть число', 'b'))
+	let c = parseFloat(prompt('Введіть число', 'c'))
+	const firstS= a+12+b
+	const secondS= Math.sqrt(a+b/2*a)
+	const thirdS= Math.cbrt((a+b)*c)
+	const fourthS= Math.sin(a/-b)
+	document.write(`
+	S1= ${firstS}<br>
+	<br>
+	S2= ${secondS}<br>
+	<br>
+	S3= ${thirdS}<br>
+	<br>
+	S4= ${fourthS}<br>
+	`)
+</script>
+</div>
+<a href="../index.html"> Повернутись назад </a>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task_5</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="task1.js"></script>
+</head>
+<body>
+	<H1> Task_5 </H1>
+	<p> З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести на екран назву транспортного засобу, яким він може керувати.</p>
+	<script>
+//Step 0.
+//Category -  З клавіатури вводиться назва категорії водія
+//Step 1.
+const Category= prompt('Введіть вашу категорію (A,B,C)', 'A')
+//Step 2.
+if(Category==='A'|| Category==='a'|| Category==='а'|| Category==='А' ){
+	alert(`Мотоцикл`)
+}
+else if(Category==='B'|| Category==='b'|| Category==='В'|| Category==='в'){
+	alert(`Машина`)
+}
+else if(Category==='C'|| Category==='c'|| Category==='С'|| Category==='с'){
+	alert(`Вантажний автомобіль`)}
+	else if(Category!='A','a', 'B','b','C','c', 'А', 'а', 'В','в','С','с'){
+	alert(`Ви написали неправильну назву категорії!`)}
+</script>
+<br>
+<br>
+<a href="../index.html"> Повернутись назад </a>
+</body>
+</html>
