@@ -14,11 +14,14 @@
    <script>
 //userParagraph
 let userParagraph = parseInt(prompt('Скільки бажаєте абзаців?'))
-document.write(`<h1> Заголовок ${userParagraph} </h1>`)
+
 for (let i = 1; i <=userParagraph; i++) {
-	document.write(`<p>Розділ ${userParagraph}, параграф ${i} `)
-	}
+	document.write(`<h1> Заголовок ${i} </h1>`)
+	for (let m = 1; m <=userParagraph; m++) {
+	document.write(`<p>Розділ ${i}, параграф ${m} `)
 	document.write(`<hr>`)
+	}
+	}
 </script>
 <br />
 <br />
