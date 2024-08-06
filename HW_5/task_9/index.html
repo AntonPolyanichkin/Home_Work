@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_9</title>
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+  <body>
+    <h1>Task_9</h1>
+   <p> Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).
+	</p>
+   <script>
+let userNumber = parseInt(prompt('Введіть число від 1 до 10'))	
+let compNumber= 1+Math.floor(Math.random()*10)
+while (compNumber!==userNumber) {
+	confirm(`Загадане користувачем число: ${compNumber}?`)
+	if(userNumber===compNumber){
+	break}
+else{
+compNumber= 1+Math.floor(Math.random()*10)
+confirm(`Загадане користувачем число: ${compNumber}?`)
+}
+}
+	</script>
+<br />
+<br />
+<a href="/HW_5/index.html"> Повернутись назад </a>
+</body>
+</html>

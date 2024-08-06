@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_10</title>
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+  <body>
+    <h1>Task_10</h1>
+   <p> Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.</p>
+   <script>
+//minUserNum
+//maxUserNum
+//oddNum
+let minUserNum = parseInt(prompt('Введіть мінімальне бажане число'))
+let maxUserNum = parseInt(prompt('Введіть максимальне бажане число'))
+let oddNum = 0
+for (let i = minUserNum; i < maxUserNum; i++) {
+if (i%2 !==0) {
+	
+	oddNum+=i
+}
+}
+alert(`Сума непарних чисел : ${oddNum}`)
+	</script>
+<br />
+<br />
+<a href="/HW_5/index.html"> Повернутись назад </a>
+</body>
+</html>
