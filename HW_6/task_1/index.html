@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_1</title>
+    <link rel="stylesheet" href="style.css" />
+  
+  </head>
+  <body>
+    <h1>Task_1</h1>
+   <p> З клавіатури вводитяться числа поки не буде введено 0. Знайти суму чисел.</p>
+   <script>
+   //userNumber
+	//sum
+	let userNumber = 0
+	let sum = 0
+	do {
+	userNumber = parseInt(prompt('Введіть будь-яке число'))
+	sum += userNumber
+	} 
+	while (userNumber>0);
+	alert(`Сума введених чисел : ${sum}`)
+</script>
+<br />
+<br />
+<a href="..//index.html"> Повернутись назад </a>
+</body>
+</html>

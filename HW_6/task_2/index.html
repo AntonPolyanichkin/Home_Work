@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_2</title>
+    <link rel="stylesheet" href="style.css" />
+  
+  </head>
+  <body>
+    <h1>Task_2</h1>
+   <p> З клавіатури поступово вводяться символи поки не буде введено символ «а». 
+		Вивести рядок символів у зворотному порядку.</p>
+   <script>
+   //userSymbol
+	//symbol
+	let userSymbol = ``
+	let symbol = ``
+	do {
+	userSymbol = prompt(`Введіть будь-який символ`)
+   symbol += userSymbol
+	} while (userSymbol!=`a`);
+	const stringSplitted = symbol.split('')
+	const arrayReversed = stringSplitted.reverse()
+	const arrayJoined = arrayReversed.join ('')
+	console.log(arrayJoined);
+</script>
+<br />
+<br />
+<a href="..//index.html"> Повернутись назад </a>
+</body>
+</html>

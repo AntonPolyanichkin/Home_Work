@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_3</h1>
+    <p>З клавіатури вводяться два числа N i M (N<\M).Вивести а екран числа</p>
+    <script>
+      //Дивимось на умову та думаємо над назвами змінних
+      //let userNumberOne
+      //let userNumberSecond
+      let userNumberOne = parseInt(prompt("Введіть перше число"));
+      let userNumberSecond = parseInt(prompt("Введіть друге число"));
+      do {
+        document.write(`${userNumberOne} - ${userNumberSecond}<br>`);
+        userNumberOne++
+        userNumberSecond--
+      } while (userNumberOne < userNumberSecond);
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>

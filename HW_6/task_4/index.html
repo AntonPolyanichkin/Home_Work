@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_4</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_4</h1>
+    <p>
+      На екрані виводиться меню: 1. Сказати «Привіт». 2. Сказати «Зачекай». 3.
+      Сказати «До побачення». 4. Вихід. Шляхом вибору пунктів меню виводити
+      відповідні повідомлення, поки не буде вибрано пункт номер 4.
+    </p>
+    <script>
+      //menu
+      //userChoice
+      
+let menu = parseInt(prompt(
+        "Меню : \n1. Сказати «Привіт». \n2. Сказати «Зачекай». \n3. Сказати «До побачення». \n4. Вихід."
+      ));
+      let userChoice = "";
+      do 
+		switch (menu) {
+        case 1:
+          userChoice = alert("Привіт");
+			 menu = parseInt(prompt(
+        "Меню : \n1. Сказати «Привіт». \n2. Сказати «Зачекай». \n3. Сказати «До побачення». \n4. Вихід."
+      ));
+			break;
+        case 2:
+          userChoice = alert("Зачекай");
+			 menu = parseInt(prompt(
+        "Меню : \n1. Сказати «Привіт». \n2. Сказати «Зачекай». \n3. Сказати «До побачення». \n4. Вихід."
+      ));
+          break;
+        case 3:
+          userChoice = alert("До побачення");
+			 menu = parseInt(prompt(
+        "Меню : \n1. Сказати «Привіт». \n2. Сказати «Зачекай». \n3. Сказати «До побачення». \n4. Вихід."
+      ));
+          break;
+        case 4:
+          userChoice = alert("Вихід.");
+			 menu = parseInt(prompt(
+        "Меню : \n1. Сказати «Привіт». \n2. Сказати «Зачекай». \n3. Сказати «До побачення». \n4. Вихід."
+      ));
+          break;
+      }
+		while (menu!=4)
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>
