@@ -9,20 +9,26 @@
   <body>
     <h1>Task_5</h1>
     <p>
-      Комп’ютер загадує випадкове число від 1 до 10. Вгадати число шляхом введеня можливих варіантів. 
-		В кінці вивести кількість спроб користувача. </p>
+      Комп’ютер загадує випадкове число від 1 до 10. Вгадати число шляхом
+      введеня можливих варіантів. В кінці вивести кількість спроб користувача.
+    </p>
     <script>
-		let userAttempt = 0,userChoice = 0, calculator = 0
-      let compRandomNumber = 1+Math.floor(Math.random()*10)
-		alert('Комп загадав число 1-10! Спробуй вгадати!')
-		while (userChoice!=compRandomNumber) {
-			userChoice = parseInt(prompt('Вгадайте число'))
-			calculator = userChoice!=compRandomNumber? userAttempt ++ : alert('Ура, Ви вгадали')
-		}
-		alert(`Кількість спроб : ${userAttempt}`)
+      let userAttempt = 0,
+        userChoice = 0,
+        calculator = 0;
+      let compRandomNumber = 1 + Math.floor(Math.random() * 10);
+      alert("Комп загадав число 1-10! Спробуй вгадати!");
+      while (userChoice != compRandomNumber) {
+        userChoice = parseInt(prompt("Вгадайте число"));
+        calculator =
+          userChoice != compRandomNumber
+            ? userAttempt++
+            : alert("Ура, Ви вгадали");
+      }
+      alert(`Кількість спроб : ${userAttempt}`);
     </script>
     <br />
     <br />
-    <a href="..//index.html"> Повернутись назад </a>
+    <a href="../index.html"> Повернутись назад </a>
   </body>
 </html>
