@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_1</h1>
+    <p>Створити функцію, яка за номером місяця повертає його назву</p>
+    <script>
+      function getseasonsOfTheYear(seasons) {
+        switch (seasons) {
+          case 1:
+            seasons = alert("Січень");
+            break;
+          case 2:
+            seasons = alert("Лютий");
+            break;
+          case 12:
+            seasons = alert("Грудень");
+            break;
+          case 3:
+            seasons = alert("Березень");
+            break;
+          case 4:
+            seasons = alert("Квітень");
+            break;
+          case 5:
+            seasons = alert("Травень");
+            break;
+          case 6:
+            seasons = alert("Червень");
+            break;
+          case 7:
+            seasons = alert("Липень");
+            break;
+          case 8:
+            seasons = alert("Серпень");
+            break;
+          case 9:
+            seasons = alert("Вересень");
+            break;
+          case 10:
+            seasons = alert("Жовтень");
+            break;
+          case 11:
+            seasons = alert("Листопад");
+            break;
+        }
+        return;
+      }
+      getseasonsOfTheYear(parseInt(prompt(`Введіть номер місяцю: `)));
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

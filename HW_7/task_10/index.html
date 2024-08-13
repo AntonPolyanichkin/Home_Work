@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_10</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_10</h1>
+    <p>Дано покази температур (довільна кількість). 
+		Розробити функцію, яка дозволить знайти середнє значення для додатних показів температури.</p>
+    <script>
+  function getAvarageTemp() {
+	let avaraeTemp = 0
+	for (let temp = 1; temp <=6; temp++) {
+		let userTemp = parseFloat(prompt(`${temp} - Показник температури`, `0`))
+		if (userTemp>=0) {
+			avaraeTemp+=userTemp
+		}
+	}
+	return avaraeTemp/6
+  }
+  let userAvarageTemperature = getAvarageTemp()
+  document.write(`Середнє значення додатніх показників: ${userAvarageTemperature.toFixed(2)}`)
+    </script>
+    <br />
+    <br />
+    <a class="a"href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

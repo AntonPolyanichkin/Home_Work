@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_3</h1>
+    <p>Створити окремі функції, які для 4 чисел знаходять: 
+		1)суму; 
+		2)добуток; 
+		3)середнє арифметичне;
+		4)мінімальне значення. 
+		</p>
+<script>
+	//Задам глобальні змінні, щоб кожна змінна мала доступ до значень
+	let firstNum = parseFloat(prompt(`Введіть бажане число`))
+	let secondNum = parseFloat(prompt(`Введіть бажане число`))
+	let thirdNum = parseFloat(prompt(`Введіть бажане число`))
+	let forthNum = parseFloat(prompt(`Введіть бажане число`))
+//--------------Сума--------------
+function getSum(a,b,c,d) {
+return a+b+c+d
+}
+//--------------Добуток--------------
+function getProduct(a,b,c,d) {
+return a*b*c*d
+}
+//--------------Cереднє арифметичне--------------
+function getArithmeticMean(a,b,c,d) {
+return (a+b+c+d)/4
+}
+//--------------Мінімальне значення--------------
+function getMinNum(a,b,c,d) {
+return Math.min(a,b,c,d)
+}
+let sum = getSum(firstNum,secondNum,thirdNum,forthNum)
+document.write(`<div>  Сума : ${sum}  </div>`)
+let product = getProduct(firstNum,secondNum,thirdNum,forthNum)
+document.write(`<div>  Добуток : ${product}  </div>`)
+let mean = getArithmeticMean(firstNum,secondNum,thirdNum,forthNum)
+document.write(`<div>  Cереднє арифметичне : ${mean}  </div>`)
+let min = getMinNum(firstNum,secondNum,thirdNum,forthNum)
+document.write(`<div>  Мінімальне значення : ${min}  </div>`)
+</script>
+<br />
+<br />
+<a href="../index.html"> Повернутись назад </a>
+</body>
+</html>

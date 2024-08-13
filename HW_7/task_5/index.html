@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_5</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_5</h1>
+    <p>
+Створити окремі функції, які переводять:
+1.Сантиметри у дюйми;
+2.Кілограми у фунти;
+3.Кілометри у милі.</p>
+<script>
+let numberForCalculations = parseFloat(prompt(`Введіть число : `))
+//--------Сантиметри у дюйми---------
+function getCentimetersToInches(centimeters) {
+return centimeters*0.3937
+}
+//--------Кілограми у фунти---------
+function getKilogramsToPounds(kilograms) {
+	return kilograms*2.20462
+}
+//--------Кілометри у милі---------
+function getKilometersToMiles(kilometers) {
+	return kilometers*0.621371 
+}
+let centimetersToInches = getCentimetersToInches(numberForCalculations)
+alert(`Дюйми :  ${centimetersToInches.toFixed(2)}`)
+let kilogramsTopounds = getKilogramsToPounds(numberForCalculations)
+alert(`Фунти :  ${kilogramsTopounds.toFixed(2)}`)
+let kilometersToMiles  = getKilometersToMiles (numberForCalculations)
+alert(`Милі :  ${kilometersToMiles.toFixed(2)}`)
+</script>
+<br />
+<br />
+<a href="../index.html"> Повернутись назад </a>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_4</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_4</h1>
+    <p>
+      Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька
+      результатів: кількість парних, кількість додатних, кількість більших за
+      100.
+    </p>
+    <script>
+      let firstNumber = parseFloat(prompt(`Введіть число`))
+      let secondNumber = parseFloat(prompt(`Введіть число`))
+      let thirdNumber = parseFloat(prompt(`Введіть число`))
+      function getAnalysisUserNumber(a,b,c) {
+      let evenNum = 0
+      let positiveNum = 0
+      let greaterThanOneHundred = 0
+      if(a%2===0){
+      	evenNum++
+      }
+      if(b%2===0){
+      	evenNum++
+      }
+      if(c%2===0){
+      	evenNum++
+      }
+      if(a>0){
+      	positiveNum++
+      }
+      if(b>0){
+      	positiveNum++
+      }
+      if(c>0){
+      	positiveNum++
+      }
+      if(a>100){
+      	greaterThanOneHundred++
+      }
+      if(b>100){
+      	greaterThanOneHundred++
+      }
+      if(c>100){
+      	greaterThanOneHundred++
+      }
+		return{
+			evenNum:evenNum,
+			positiveNum:positiveNum,
+			greaterThanOneHundred:greaterThanOneHundred,
+		}
+	}
+      let result = getAnalysisUserNumber(firstNumber,secondNumber,thirdNumber)
+      document.write(`Парні : ${result.evenNum}`)
+      document.write(`Додатні : ${result.positiveNum}`)
+      document.write(`Більші за 100 : ${result.greaterThanOneHundred}`)
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

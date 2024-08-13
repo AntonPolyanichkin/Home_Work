@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_6</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_6</h1>
+    <p>Створити функцію, яка створює таблицю з вказаною кількістю рядків і 
+		стовпців (таблиця заповнюється заданим фіксованим повідомленням).</p>
+<script>
+//Спочатку введемо змінні, які дозволять обирати користовачу кількість рядків, стовпців, текст
+let userRows = parseInt(prompt(`Вкажіть кількість рядків таблиці`))
+let userColumns = parseInt(prompt(`Вкажіть кількість стовпців таблиці`))
+let userText = prompt('Введіть бажаний текст :', 'Будь-який текст')
+//-----Створення функції, яка створює таблицю за заданими користувачем параметрами-------
+function getTable(rows,columns,text) {
+	document.write(`<table>`)
+	for (let i = 0; i <rows; i++) {
+	document.write(`<tr>`)
+		for (let a = 0; a <columns; a++) {
+			document.write(`<td> ${text} </td>`)
+		}
+		document.write(`</tr>`)
+		}
+		document.write(`</table>`)
+}
+getTable(userRows,userColumns,userText)
+</script>
+<br />
+<br />
+<a href="../index.html"> Повернутись назад </a>
+</body>
+</html>

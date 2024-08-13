@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_0</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_0</h1>
+    <p>
+      Створити функцію, яка за номером місяця повертає пору року, до якої
+      відноситься цей місяць.
+    </p>
+    <script>
+      //-----створюємо функцію, яка буде давати пору року за номером місяця
+      //1,2 - зима, 3,4,5 - весна, 6,7,8 - літо, 9,10,11 - осінь, 12 - зима
+      function getSeasonsOfTheYear(seasons) {
+        switch (seasons) {
+          case 1:
+          case 2:
+          case 12:
+            seasons = alert("Зима");
+            break;
+          case 3:
+          case 4:
+          case 5:
+            seasons = alert("Весна");
+            break;
+          case 6:
+          case 7:
+          case 8:
+            seasons = alert("Літо");
+            break;
+          case 9:
+          case 10:
+          case 11:
+            seasons = alert("Осінь");
+            break;
+        }
+        return;
+      }
+      getSeasonsOfTheYear(parseInt(prompt(`Введіть номер місяця`)))
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>
