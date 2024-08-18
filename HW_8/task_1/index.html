@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_1</h1>
+    <p>
+      Задача 1. Дано масив, який містить оцінки з К предметів. Знайти середній
+      бал і з’ясувати до якої категорії він відноситься (відмінник, двійочник
+      (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є
+      хоча би одна трійка)).
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        let allMarks = parseInt(prompt(`Введіть кількість оцінок студента`));
+        let studentMarks = [];
+        function getMarksSrudent(allMarks) {
+          for (let i = 1; i <= allMarks; i++) {
+            let marks = parseInt(prompt(`Введіть ${i} оцінку студента`));
+            studentMarks.push(marks);
+          }
+          return studentMarks;
+        }
+        let avarage = 0;
+        function getAvarageGradeStudent(avarage, allMarks, studentMarks) {
+          for (let grade = 0; grade < studentMarks.length; grade++) {
+            avarage += studentMarks[grade];
+          }
+          return Math.floor(avarage / allMarks);
+        }
+        let studentGrade = getMarksSrudent(allMarks);
+        let avarageStudentMarks = getAvarageGradeStudent(
+          avarage,
+          allMarks,
+          studentMarks
+        );
+        function showStudentCategory(avarageStudentMarks) {
+          let studentCategory;
+          switch (avarageStudentMarks) {
+            case 1:
+            case 2:
+              studentCategory = "Двійочник, йди вчись";
+              break;
+            case 3:
+              studentCategory = "Трійочник, йди вчись";
+              break;
+            case 4:
+              studentCategory = "Хорошист, молодець, нормально навчаєшся";
+              break;
+            case 5:
+              studentCategory = "Ти відмінно навчаєшся !";
+              break;
+          }
+          return studentCategory;
+        }
+        let categoryStudent = showStudentCategory(avarageStudentMarks);
+        alert(`${categoryStudent}`);
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

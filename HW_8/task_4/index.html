@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_4</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_4</h1>
+    <p>
+      Дано послідовність цін товарів та назв (у окремих масивах). Вивести на
+      екран ті, які може собі дозволити користувач (кількість грошей задається).
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        let userMoney = parseFloat(prompt(`Введіть кількість ваших грошей`));
+        let userProduct = ["Хліб", "Молоко", "Чай"];
+        let priceForProduct = [30, 60, 100];
+        function showBuyProduct(userMoney, userProduct, priceForProduct) {
+          if (userMoney >= 30 && userMoney <= 59) {
+            alert(`Ви можете купити: ${userProduct[0]}`);
+          } else if (userMoney >= 60 && userMoney <= 99) {
+            alert(`Ви можете купити: ${userProduct[0]} або ${userProduct[1]}`);
+          } else if (userMoney >= 100 && userMoney <=189) {
+            alert(
+              `Ви можете купити: ${userProduct[0]} або ${userProduct[1]} або ${userProduct[2]}`
+            );
+          } else if (userMoney >= 190) {
+            alert(
+              `Ви можете купити усі три позиції: ${userProduct[0]},${userProduct[1]},${userProduct[2]}`
+            );
+          }
+        }
+        let test = showBuyProduct(userMoney, userProduct, priceForProduct);
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

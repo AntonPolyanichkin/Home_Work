@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_5</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_5</h1>
+    <p>
+Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+за весь рік;
+у першій половині року;
+у другій половині року;
+за літо;
+за ІІ квартал;
+за парні місяці (з парними номерами);
+за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+</p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        let invoice = [1000,100,1600,1800,300,500,2000,5000,250,1100,4000,3500]
+		  function getInvoiceInThePeriod(invoice,firstUserMonth,secondUserMonth,step=1) {
+			sum = 0
+			for (let i=firstUserMonth-1; i< secondUserMonth; i+=step) {
+			sum+=invoice[i]}
+		  return sum
+		}
+		//<-------------------->
+		let allYear = getInvoiceInThePeriod(invoice,1,12)
+		//<-------------------->
+		let firstYearHalf = getInvoiceInThePeriod(invoice,1,6)
+		//<-------------------->
+		let secondYearHalf = getInvoiceInThePeriod(invoice,6,12)
+		//<-------------------->
+		let summerPeriod = getInvoiceInThePeriod(invoice,6,8)
+		//<-------------------->
+		let secondQuarter = getInvoiceInThePeriod(invoice,4,6)
+		//<-------------------->
+		let evenMonth = getInvoiceInThePeriod(invoice,2,12, 2)
+		//<-------------------->
+		let firstMonthPeriod = getInvoiceInThePeriod(invoice,3,12,3)
+		//<-------------------->
+		document.write(`Сумарна кількість грошей за увесь рік = ${allYear}<br>`)
+		document.write(`Сумарна кількість грошей за першу половину року = ${firstYearHalf}<br>`)
+		document.write(`Сумарна кількість грошей за другу половину року = ${secondYearHalf}<br>`)
+		document.write(`Сумарна кількість грошей за літній період = ${summerPeriod}<br>`)
+		document.write(`Сумарна кількість грошей за другий квартал = ${secondQuarter}<br>`)
+		document.write(`Сумарна кількість грошей за парні місяці = ${evenMonth}<br>`)
+		document.write(`Сумарна кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима) = ${firstMonthPeriod}<br>`)
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

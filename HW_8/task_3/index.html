@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_3</h1>
+    <p>
+      Задача 4. Дано послідовність номерів автомобілів. Підрахувати кількість
+      номерів, які : • починаються на букву «А»; • перша і остання літери
+      співпадають; • складаються з більше ніш 5 символів;
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        //Вводжу масив
+        let allCarNumber = [
+          ["A", "A", "2", "6", "1", "0", "B", "B"],
+          ["B", "B", "1", "1", "1", "1", "H", "B"],
+          ["A", "C", "X", "X", "X", "K", "C"],
+          ["A", "A", "A"],
+          ["X", "X", "X"],
+          ["A", "A", "1", "1", "1", "1", "K", "A"],
+        ];
+        let searchLetter = "A";
+        //Роблю необхідні функції
+        function getNumberStartA(allCarNumber, searchLetter) {
+          let StartA = 0;
+          for (let i = 0; i < allCarNumber.length; i++) {
+            if (allCarNumber[i][0] === searchLetter) {
+              StartA++;
+            }
+          }
+          return StartA;
+        }
+        function getNumberFirstAndLastNumberMatch(allCarNumber) {
+          let firstAndLastLetterMatch = 0;
+          for ( let number = 0; number < allCarNumber.length; number++) {
+            if (allCarNumber[number][0] === allCarNumber[number].at(-1) )
+              firstAndLastLetterMatch++;
+          }
+          return firstAndLastLetterMatch;
+        }
+        function getNumberBiggerthenfive(allCarNumber) {
+          let numberBiggerThenFive = 0;
+          for (let i = 0; i < allCarNumber.length; i++) {
+            if (allCarNumber[i].length > 5) {
+              numberBiggerThenFive++;
+            }
+          }
+          return numberBiggerThenFive;
+        }
+        let firstFunctRes = getNumberStartA(allCarNumber, searchLetter);
+        alert(`${firstFunctRes}`);
+        let secondFunctRes = getNumberFirstAndLastNumberMatch(allCarNumber);
+        alert(`${secondFunctRes}`);
+        let thirdFunctRes = getNumberBiggerthenfive(allCarNumber);
+        alert(`${thirdFunctRes}`);
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_2</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_2</h1>
+    <p>
+      Задача 2. Дано масив, який зберігає кількість відвідувачів магазину
+      протягом тижня. Вивести на екран: -номери днів, протягом яких кількість
+      відвідувачів була меншою за 20; -номери днів, коли кількість відвідувачів
+      була мінімальною; -номери днів, коли кількість відвідувачів була
+      мінімальною; -загальну кількість клієнтів у робочі дні та окремо загальну
+      кількість днів на вихідних.
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        let clients = [];
+        function clientsCount() {
+          for (let index = 0; index <= 6; index++) {
+            let userCountClients = parseInt(
+              prompt(`Введіть кількість клієнтув у ${index+1} день`)
+            );
+            clients.push(userCountClients);
+          }
+
+          return clients;
+        }
+        let totalNumberOfClients = clientsCount();
+        //<-------------номери днів, протягом яких кількість відвідувачів була меншою за 20--------->
+        function getDayUnderTwentyClients(totalNumberOfClients) {
+          let dayUnderTwenty = 0;
+          for (let day = 0; day < clients.length; day++) {
+            if (clients[day] < 20) {
+              dayUnderTwenty++;
+            }
+          }
+          return dayUnderTwenty;
+        }
+        let dayWhenClientsUnderTwenty =
+          getDayUnderTwentyClients(totalNumberOfClients);
+        alert(
+          `Кількість днів, коли клієнтів було менше двадцяти : ${dayWhenClientsUnderTwenty}`
+        );
+        //<---------------------номери днів, коли кількість відвідувачів була мінімальною------------->
+        let minClients = parseInt(
+          prompt(
+            `Будь ласка, введіть мінімальну кількість клієнтів для вашого магазину`
+          )
+        );
+        function getDayWhenclientsBeMin(minClients) {
+          let dayMinClient = 0;
+          for (let clientsmin = 0; clientsmin < clients.length; clientsmin++) {
+            if (clients[clientsmin] <= minClients) {
+              dayMinClient++;
+            }
+          }
+          return dayMinClient;
+        }
+        let dayWhenClientMin = getDayWhenclientsBeMin(minClients);
+        alert(
+          `Дні, коли кількість відвідувачей була мінімальною : ${dayWhenClientMin}`
+        );
+		  //<----------------номери днів, коли кількість відвідувачів була максимальною------->
+		  let maxClients = parseInt(
+          prompt(
+            `Будь ласка, введіть максимальну кількість клієнтів для вашого магазину`
+          )
+        );
+		  function getDayWhenclientsBeMax(maxClients) {
+          let dayMaxClient = 0;
+          for (let clientsMax = 0; clientsMax < clients.length; clientsMax++) {
+            if (clients[clientsMax] >= maxClients) {
+              dayMaxClient++;
+            }
+          }
+          return dayMaxClient;
+        }
+		  let dayWhenClientMax = getDayWhenclientsBeMax(maxClients);
+        alert(
+          `Дні, коли кількість відвідувачей була максимальною : ${dayWhenClientMax}`
+        );
+		  //<----------Загальна кількість клієнтів у робочі дні та вихідні--->
+		  function getSumClientsInTheWorkDay(clients) {
+			let sumInTheWorkDay=0
+			for (let i = 0; i <=4; i++) {
+			sumInTheWorkDay+=clients[i]
+			}
+			return sumInTheWorkDay
+		  }
+		  let workDayClients = getSumClientsInTheWorkDay(clients)
+		  alert(` Загальна кількість клієнтів у робочі дні: ${workDayClients}`)
+		  function getSumClientsInTheWeekend(clients) {
+			let sumInTheWeekendDay=0
+			for (let i = 5; i <=6; i++) {
+				sumInTheWeekendDay+=clients[i]
+			}
+			return sumInTheWeekendDay
+		  }
+		  let weekendDayClients = getSumClientsInTheWeekend(clients)
+		  alert(`Загальна кількість клієнтів у вихідні дні: ${weekendDayClients}`)
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>
