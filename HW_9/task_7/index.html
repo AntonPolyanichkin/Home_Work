@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_7</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_7</h1>
+    <p>
+      Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за
+      1000 грн. дати 30% знижки.
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        //quantityProduct - кількість товарів
+        //-----------map.--------------
+        alert(`map`);
+        let quantityProduct = parseInt(prompt(`Введіть кількість товарів `));
+        function getArrayOfPrice(quantityProduct) {
+          let price;
+          let arrayOfProduct = [];
+          for (let product = 0; product < quantityProduct; product++) {
+            price = parseFloat(prompt(`Введіть ціну ${product + 1}-го товару`));
+            arrayOfProduct.push(price);
+          }
+          return arrayOfProduct;
+        }
+        let pricesArray = getArrayOfPrice(quantityProduct);
+        const saleArrayPrice = pricesArray.map(el =>
+          el > 1000 ? el * 0.7 : el
+        );
+        document.write(`${saleArrayPrice}<br>`);
+        //----------forEach---------------
+        alert(`forEach`);
+        let quantityProduct_1 = parseInt(prompt(`Введіть кількість товарів `));
+        function getArrayOfPrice_1(quantityProduct_1) {
+          let price;
+          let arraOfProductPrice = [];
+          for (let i = 0; i < quantityProduct_1; i++) {
+            price = parseFloat(prompt(`Введіть ціну ${i+1}-го товару`));
+            arraOfProductPrice.push(price);
+          }
+          return arraOfProductPrice;
+        }
+		  let arrayOfProductPrices = getArrayOfPrice_1(quantityProduct_1)
+		  arrayOfProductPrices.forEach((element,index,arr)=>{
+			if(element>1000){
+			arr[index]= element*0.7}
+		  })
+		  
+		 
+		  document.write (`${arrayOfProductPrices}<br>`)
+      }
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>

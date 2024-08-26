@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_10</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_10</h1>
+    <p>
+      Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде
+      містити величину сплаченого податку у грн.
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        let quantityUserPrice = parseInt(prompt(`Введіть кількість цін`));
+
+        function getArrayOfPrices(quantityUserPrice) {
+          const arrayOfPrices = [];
+          let userPrice;
+          for (let price = 0; price < quantityUserPrice; price++) {
+            userPrice = parseFloat(prompt(`Введіть ціну`));
+            arrayOfPrices.push(userPrice);
+          }
+          return arrayOfPrices;
+        }
+        const arrayOfUserPrices = getArrayOfPrices(quantityUserPrice);
+        const arrayOfTaxPrices = arrayOfUserPrices.map(element =>
+          document.write(`${element * 0.2} грн ; <br>`)
+        );
+      }
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>

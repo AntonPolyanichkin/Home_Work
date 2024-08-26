@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_9</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_9</h1>
+    <p>Дано масив імен. Сформувати масив з перших літер цих імен.</p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+			let quantityName = parseInt(prompt(`Введіть кількість імен`))
+			function getArrayOfUserName(quantityName) {
+				const arrayOfUserName = []
+				let userName
+				for (let name = 0; name <quantityName; name++) {
+					userName = prompt('Введіть імʼя','Юра')
+					arrayOfUserName.push(userName)
+				}
+				return arrayOfUserName
+			}
+			const arrayOfUserName = getArrayOfUserName(quantityName)
+			const arrayOfFirstLetterName = arrayOfUserName.map((el)=> document.write(`${el.charAt(0)} <br>`) )
+      }
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>

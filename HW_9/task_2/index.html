@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_2</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_2</h1>
+    <p>
+      Користувач вводить кількість елементів. Створити масив, у якому перша
+      половина заповнена 1-цями, а друга заповнена 7-ками.
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        //Вводимо кількість елементів.
+        alert(`1 варіант`);
+        let userQuantity = parseInt(prompt(`Введіть кількість елементів`));
+        //З використанням метода .fill заповнюємо масив одиницями
+        let quantityUserElement = new Array(userQuantity).fill(1);
+        //Заповнюємо половину масиву сімками
+        quantityUserElement.fill(7, Math.floor(quantityUserElement.length / 2));
+        document.write(` Згенерований масив: ${quantityUserElement} <br>`);
+        // З використанням функції (Пробую ну дуже класний варіант Даніеля )
+        alert(`2 варіант`);
+        let userQuantity_2 = parseInt(prompt(`Введіть кількість елементів`));
+        function getQuantityUserElement(userQuantity_2) {
+          let half = Math.floor(userQuantity_2 / 2);
+          return new Array(userQuantity).fill(1, 0, half).fill(7, half);
+        }
+        let result = getQuantityUserElement(userQuantity_2);
+        document.write(`Згенерований масив другим способом: ${result}<br>`);
+      }
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_8</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_8</h1>
+    <p>
+      Дано масив номерів авто. Сформувати новий масив тих, які починаються на
+      «А»
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        //let quantityOfCarNumber = parseInt(
+        //prompt(`Введіть кількість номерів авто`)
+        //);
+        //function getArrayOfCarNumber(quantityOfCarNumber) {
+        //let carNumber;
+        //let carNumberArray = [];
+        //for (let number = 0; number < quantityOfCarNumber; number++) {
+        //carNumber = prompt(`Введіть номер ${number + 1}-го  авто`);
+        //carNumberArray.push(carNumber);
+        //}
+        //return carNumberArray;
+        //}
+        //let carNumberArray = getArrayOfCarNumber(quantityOfCarNumber);
+        //function getArrayCarNumberStartA(carNumberArray ) {
+        //let arrCurNumberFirstLetter = []
+        //for (let i = 0; i < carNumberArray.length; i++) {
+        //if (carNumberArray[i].charAt(0)==='A') {
+        //arrCurNumberFirstLetter.push(carNumberArray[i])
+        //}
+        //}
+        //return arrCurNumberFirstLetter
+        //}
+        //let arrNumberStartA = getArrayCarNumberStartA(carNumberArray )
+        //document.write(`${arrNumberStartA}`);
+        //--------Map--------
+        let quantityOfCarNumber = parseInt(
+          prompt(`Введіть кількість номерів авто`)
+        );
+        function getArrayOfCarNumber(quantityOfCarNumber) {
+          let carNumber;
+          let carNumberArray = [];
+          for (let number = 0; number < quantityOfCarNumber; number++) {
+            carNumber = prompt(`Введіть номер ${number + 1}-го  авто`);
+            carNumberArray.push(carNumber);
+          }
+          return carNumberArray;
+        }
+        let carNumberArray = getArrayOfCarNumber(quantityOfCarNumber);
+        let arrayOfCarNumbersStartA = carNumberArray.map(el => {
+          if (el.charAt(0) === "A") document.write(`${el} <br>`);
+        });
+      }
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>

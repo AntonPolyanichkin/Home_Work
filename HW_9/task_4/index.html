@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_4</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_4</h1>
+    <p>Дано масив елементів. Вивести на екран елементи, що більші за 100</p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        let quantityOfNumber = parseFloat(prompt(`Кількість чисел`));
+        let arrOfElements = [];
+        function getArrayOfUserNumber(quantityOfNumber) {
+          let userNumber;
+          for (let item = 0; item < quantityOfNumber; item++) {
+            userNumber = parseFloat(prompt(`Числа`));
+            arrOfElements.push(userNumber);
+          }
+          return arrOfElements;
+        }
+        getArrayOfUserNumber(quantityOfNumber);
+        function showNumberGreaterThanOneHundred(getArrayOfUserNumber) {
+          for (const elements of arrOfElements) {
+            if (elements > 100) document.write(`${elements} <br> `);
+          }
+        }
+        showNumberGreaterThanOneHundred(getArrayOfUserNumber);
+      }
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>

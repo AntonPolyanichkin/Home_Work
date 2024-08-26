@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_3</h1>
+    <p>
+      Користувач вводить кількість елементів. Створити масив, у якому перші 5
+      елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        let userQuantityOfElement = parseInt(
+          prompt(`Введіть кількість елементів`)
+        );
+		  function getArrayUserElement(userQuantityOfElement) {
+			return new Array(userQuantityOfElement).fill(1,0,5).fill(7,5)
+		  }
+		  let result = getArrayUserElement(userQuantityOfElement)
+		  document.write(`Згенерований масив: ${result}`)
+      }
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>

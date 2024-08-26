@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_6</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_6</h1>
+    <p>
+      Дано масив елементів. Усі елементи, які більші за перший елемент помножити
+      на 2
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        //Вводимо елементи, кількість елементів
+        let quantityOFElements = parseInt(
+          prompt(`Введіть кількість елементів`)
+        );
+        function generationArray(quantityOFElements) {
+          let elements = [];
+          let userElement;
+          for (let element = 0; element < quantityOFElements; element++) {
+            userElement = parseFloat(prompt(`Введіть елемент`));
+            elements.push(userElement);
+          }
+          return elements;
+        }
+        let arrayOfElements = generationArray(quantityOFElements);
+        arrayOfElements.forEach((el,index,arr)=>{
+			if(el>arr[0]){arr[index]*=2}
+		  })
+			document.write(`Усі елементи, які більші за перший елемент помножені 
+      на 2 : ${arrayOfElements}`)
+		  
+      }
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>

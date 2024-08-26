@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_5</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_5</h1>
+    <p>Дано масив елементів. Знайти добуток додатних елементів</p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        let quantityOfNumber = parseInt(prompt(`Введіть кількість елементів`));
+        function getArrayElement(quantityOfNumber) {
+          let arrayOfNumber = [];
+          let userNumber;
+          for (let i = 0; i < quantityOfNumber; i++) {
+            userNumber = parseFloat(prompt(`Числа`));
+            arrayOfNumber.push(userNumber);
+          }
+          return arrayOfNumber;
+        }
+        const arrayNumber = getArrayElement(quantityOfNumber);
+        function getProductOfNumber(arrayNumber) {
+          count = 1;
+          for (const number of arrayNumber) {
+            if (number > 0) {
+              count *= number;
+            }
+          }
+          return count;
+        }
+        const productOfNumber = getProductOfNumber(arrayNumber);
+        function showResult(productOfNumber) {
+          document.write(`Добуток додатніх чисел: ${productOfNumber}`);
+        }
+        showResult(productOfNumber);
+      }
+    </script>
+    <br />
+    <br />
+    <a href="..//index.html"> Повернутись назад </a>
+  </body>
+</html>
