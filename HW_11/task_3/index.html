@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_3</h1>
+    <p>
+      Морський бій. Випадковим чином на двовимірному полі розміром 6*6
+      розташовується 5 кораблів. Користувач стріляє вказуючи координати. Гра
+      продовжується поки не потоплено усі кораблі або у користувача не
+      закінчаться снаряди.
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        //Зробив поле для бою
+        function getArrForBattle() {
+          const battleArr = [];
+          for (let row = 0; row < 6; row++) {
+            const rowArr = [];
+            for (let coloumn = 0; coloumn < 6; coloumn++) {
+              rowArr.push(0);
+            }
+            battleArr.push(rowArr);
+          }
+          return battleArr;
+        }
+        const arrForBattle = getArrForBattle();
+        //Функція для рандомнї розстановки кораблів
+        function getRandomPos(min, max) {
+          return min + Math.floor(Math.random() * (max - min + 1));
+        }
+        //створюю функцію для самої розстановки
+        function getShipPos(arrForBattle) {
+          for (let posShip = 0; posShip < 5; posShip++) {
+            let row = getRandomPos(0, 5);
+            let col = getRandomPos(0, 5);
+            if (arrForBattle[row][col] === 0) {
+              arrForBattle[row][col] = 1;
+            }
+          }
+          return arrForBattle;
+        }
+        const shipPosInBattleFront = getShipPos(arrForBattle);
+        //реалізуємо ігровий процес
+        const ship = 5;
+        let userTry = parseInt(
+          prompt(
+            `Введіть бажану кількість попиток для затомлення ${ship} кораблів`
+          )
+        );
+        while (ship > 0 && userTry > 0) {
+          let userRowShot = parseInt(
+            prompt(`Введіть позицію для пострілу по х`)
+          );
+          let userColoumShot = parseInt(
+            prompt(`Введіть позицію для пострілу по у`)
+          );
+          if (
+            userRowShot < 0 ||
+            userColoumShot < 0 ||
+            userRowShot > 5 ||
+            userColoumShot > 5
+          ) {
+            alert(`Ви ввели некоректні значення!!!`);
+            continue;
+          }
+          userTry --;
+          if (shipPosInBattleFront[userRowShot][userColoumShot] === 1) {
+            ship --;
+            alert(
+              `Ви влучили, кораблів залишилось: ${ship}, попиток залишилось: ${userTry}`
+            );
+          } else if (shipPosInBattleFront[userRowShot][userColoumShot] === 0) {
+            alert(`Промах!`);
+          } else alert(`Ви вже влучали сюди`);
+        }
+        if (userTry === 0 && ship === 0) {
+          alert(`Ви пірат Карібського моря`);
+        } else if (userTry === 0 && ship > 0) {
+          alert(`Ви пірат Азовського моря, залшилось кораблей: ${ship}`);
+        }
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

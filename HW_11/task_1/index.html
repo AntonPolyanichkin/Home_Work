@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_1</h1>
+    <p>
+      Знайти суми елементів у вказаній області (зафарбована область охоплює
+      відповідну половину рядків і стовпців) 1)номери рядків від 0 до половини,
+      стовпці від 0 до половини 2)номери рядків від 0 до половини, стовпці від
+      половини до кінця 3)номери рядків (від половини до кінця, стовпці від 0 до
+      половини 4)номери рядків від половини до кінця , стовпці від половини до
+      кінця 5)Суму парних рядків 6) Суму непарних стовпців 7) У парних рядках –
+      непарні стовпці, у непарних – парні.
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        let minValue = parseInt(prompt(`Введіть мінімальне значення`));
+        let maxValue = parseInt(prompt(`Введіть максимальне значення`));
+
+        function getRandomNum(minValue, maxValue) {
+          return (
+            minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+          );
+        }
+        let rowsQuantity = parseInt(
+          prompt(`Введіть кількість рядків двовимірного масиву`)
+        );
+        let coloumnQuantity = parseInt(
+          prompt(`Введіть кількість стовпців двовимірного масиву`)
+        );
+
+        function getTwoDimensionalArray(rowsQuantity, coloumnQuantity) {
+          const twoDimensionalArray = [];
+          for (let row = 0; row < rowsQuantity; row++) {
+            let arr = [];
+            for (let coloumn = 0; coloumn < coloumnQuantity; coloumn++) {
+              let rundomNum = getRandomNum(minValue, maxValue);
+              arr.push(rundomNum);
+            }
+            twoDimensionalArray.push(arr);
+          }
+
+          return twoDimensionalArray;
+        }
+        const twoDimensionalArray = getTwoDimensionalArray(
+          rowsQuantity,
+          coloumnQuantity
+        );
+        // 1)номери рядків від 0 до половини, стовпці від 0 до половини
+        function getSumOfHalfLength(twoDimensionalArray) {
+          let sum = 0;
+          const halfLength = Math.floor(twoDimensionalArray.length / 2);
+          for (let row = 0; row < halfLength; row++) {
+            for (
+              let coloumn = 0;
+              coloumn < twoDimensionalArray[row].length;
+              coloumn++
+            ) {
+              sum += twoDimensionalArray[row][coloumn];
+            }
+          }
+          return sum;
+        }
+        let sumOfHalfArrayLength = getSumOfHalfLength(twoDimensionalArray);
+        document.write(
+          `<br> Сума елементів у вказаній області: номери рядків від 0 до половини, стовпці від 0 до половини - ${sumOfHalfArrayLength} <br>`
+        );
+        //2)номери рядків від 0 до половини, стовпці від половини до кінця
+        function getSumOfHalfRowAndColoumnHalfEnd(twoDimensionalArray) {
+          let sum = 0;
+          const halfLength = Math.floor(twoDimensionalArray.length / 2);
+          for (let row = 0; row < halfLength; row++) {
+            const halfRowLength = Math.floor(
+              twoDimensionalArray[row].length / 2
+            );
+            for (
+              let coloumn = halfRowLength;
+              coloumn < twoDimensionalArray[row].length;
+              coloumn++
+            ) {
+              sum += twoDimensionalArray[row][coloumn];
+            }
+          }
+          return sum;
+        }
+        const sumOfHalfRowAndColoumnHalfEnd =
+          getSumOfHalfRowAndColoumnHalfEnd(twoDimensionalArray);
+        document.write(
+          `<br> Сума елементів у вказаній області: номери рядків від 0 до половини, стовпці від половини до кінця - ${sumOfHalfRowAndColoumnHalfEnd} <br>`
+        );
+        //3)номери рядків (від половини до кінця, стовпці від 0 до половини
+        function getSumOfHalfEndRowAndColoumnHalf(twoDimensionalArray) {
+          let sum = 0;
+          const halfLength = Math.floor(twoDimensionalArray.length / 2);
+          for (let row = halfLength; row < twoDimensionalArray.length; row++) {
+            const halfRowLength = Math.floor(
+              twoDimensionalArray[row].length / 2
+            );
+            for (let coloumn = 0; coloumn < halfRowLength; coloumn++) {
+              sum += twoDimensionalArray[row][coloumn];
+            }
+          }
+          return sum;
+        }
+        const sumOfHalfEndRowAndColoumnHalf =
+          getSumOfHalfEndRowAndColoumnHalf(twoDimensionalArray);
+        document.write(
+          `<br> Сума елементів у вказаній області: номери рядків (від половини до кінця, стовпці від 0 до половини - ${sumOfHalfEndRowAndColoumnHalf} <br>`
+        );
+        //4)номери рядків від половини до кінця , стовпці від половини до кінця
+        function getSumOfHalfEndRowAndColoumnHalfEnd(twoDimensionalArray) {
+          let sum = 0;
+          const halfLength = Math.floor(twoDimensionalArray.length / 2);
+          for (let row = halfLength; row < twoDimensionalArray.length; row++) {
+            const halfRowLength = Math.floor(
+              twoDimensionalArray[row].length / 2
+            );
+            for (
+              let coloumn = halfRowLength;
+              coloumn < twoDimensionalArray[row].length;
+              coloumn++
+            ) {
+              sum += twoDimensionalArray[row][coloumn];
+            }
+          }
+          return sum;
+        }
+        const sumOfHalfEndRowAndColoumnHalfEnd =
+          getSumOfHalfEndRowAndColoumnHalfEnd(twoDimensionalArray);
+        document.write(
+          `<br> Сума елементів у вказаній області: номери рядків від половини до кінця , стовпці від половини до кінця - ${sumOfHalfEndRowAndColoumnHalfEnd} <br>`
+        );
+        //5)Суму парних рядків
+        function getEvenRows(twoDimensionalArray) {
+          let sum = 0;
+          for (let row = 0; row < twoDimensionalArray.length; row++) {
+            if (row % 2 === 0) {
+              for (
+                let coloumn = 0;
+                coloumn < twoDimensionalArray[row].length;
+                coloumn++
+              ) {
+                sum += twoDimensionalArray[row][coloumn];
+              }
+            }
+          }
+          return sum;
+        }
+        const evenRows = getEvenRows(twoDimensionalArray);
+        document.write(`<br> Суму парних рядків - ${evenRows} <br>`);
+        //6) Суму непарних стовпців
+        function getOddRows(twoDimensionalArray) {
+          let sum = 0;
+          for (let row = 0; row < twoDimensionalArray.length; row++) {
+            for (
+              let coloumn = 0;
+              coloumn < twoDimensionalArray[row].length;
+              coloumn++
+            ) {
+              if (coloumn % 2 !== 0) {
+                sum += twoDimensionalArray[row][coloumn];
+              }
+            }
+          }
+          return sum;
+        }
+        const oddRows = getOddRows(twoDimensionalArray);
+        document.write(`<br> Суму непарних стовпців - ${oddRows} <br>`);
+        //7) У парних рядках – непарні стовпці, у непарних – парні.
+        function getSumEvenRowAndOddColoumnAndSumOddRowEvenColoumn(
+          twoDimensionalArray
+        ) {
+          let sumEvenRowAndOddColoumn = 0;
+          let sumOddRowAndEvenColoumn = 0;
+          //for (const row of twoDimensionalArray) {
+          //for (const coloumn of row) {
+          //if (row % 2 === 0 && coloumn % 2 !== 0) {
+          //sumEvenRowAndOddColoumn += coloumn;
+          //}
+          //if (row % 2 !== 0 && coloumn % 2 === 0) {
+          //sumOddRowAndEvenColoumn += coloumn;
+          //}
+          //}
+          //}
+          for (let row = 0; row < twoDimensionalArray.length; row++) {
+            for (
+              let coloumn = 0;
+              coloumn < twoDimensionalArray[row].length;
+              coloumn++
+            ) {
+              if (row % 2 === 0 && coloumn % 2 !== 0) {
+                sumEvenRowAndOddColoumn += twoDimensionalArray[row][coloumn];
+              }
+              if (row % 2 !== 0 && coloumn % 2 === 0) {
+                sumOddRowAndEvenColoumn += twoDimensionalArray[row][coloumn];
+              }
+            }
+          }
+          return [sumEvenRowAndOddColoumn, sumOddRowAndEvenColoumn];
+        }
+        const [sumEvenRowAndOddColoumn, sumOddRowAndEvenColoumn] =
+          getSumEvenRowAndOddColoumnAndSumOddRowEvenColoumn(
+            twoDimensionalArray
+          );
+        document.write(
+          `У парних рядках – непарні стовпці: ${sumEvenRowAndOddColoumn}, у непарних – парні: ${sumOddRowAndEvenColoumn}`
+        );
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>
