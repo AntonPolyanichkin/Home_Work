@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_3</h1>
+    <p>
+      Задача 3. Дано масив 30 випадкових цілих чисел. Підрахувати скільки було
+      обмінів та порівнянь чисел під час сортування включеннями.
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        //Генеруємо масив (На свій розсуд задаю мінімадьне та максимальне значення)
+        function getRandomArr(minValue = 1, maxValue = 100) {
+          const arrOfRandomElement = [];
+          for (let el = 0; el < 30; el++) {
+            let randomElement =
+              minValue + Math.floor(Math.random() * (maxValue - minValue + 1));
+            arrOfRandomElement.push(randomElement);
+          }
+          return arrOfRandomElement;
+        }
+        const randomArr = getRandomArr();
+        function getArrSortMethodInclusion(randomArr) {
+          let countComparison = 0;
+          let checkSwap = 0;
+          for (let i = 1; i < randomArr.length; i++) {
+            const currentEl = randomArr[i];
+            let j = i - 1;
+            countComparison++;
+            while (j >= 0 && randomArr[j] > currentEl) {
+              countComparison++;
+              randomArr[j + 1] = randomArr[j];
+              j = j - 1;
+              checkSwap++;
+            }
+            randomArr[j + 1] = currentEl;
+          }
+          return [countComparison, checkSwap];
+        }
+        const [countComparison, checkSwap] =
+          getArrSortMethodInclusion(randomArr);
+        document.write(` Cкільки було
+      обмінів та порівнянь чисел під час сортування включенням: порівнянь : ${countComparison}, обмінів : ${checkSwap}`);
+        console.log(randomArr);
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

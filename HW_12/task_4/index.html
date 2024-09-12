@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_4</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_4</h1>
+    <p>
+      Для розглянутих методів сортування спробувати вивести етапи сортування
+      шляхом виведення відповідних таблиць за зразком .
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        //Генеруємо масив (На свій розсуд задаю мінімадьне та максимальне значення)
+        function getRandomArr(minValue = 1, maxValue = 100) {
+          const arrOfRandomElement = [];
+          for (let el = 0; el < 30; el++) {
+            let randomElement =
+              minValue + Math.floor(Math.random() * (maxValue - minValue + 1));
+            arrOfRandomElement.push(randomElement);
+          }
+          return arrOfRandomElement;
+        }
+        const randomArr = getRandomArr();
+        function showCurrentRes(randomArr) {
+          return document.write(`<br> ${randomArr} <br>`);
+        }
+        document.write(`<br> Метод сортування "бульбашка" <br>`);
+        function getSortBubbleMethod(randomArr) {
+          let change;
+          let countComparison = 0;
+          let checkSwap = 0;
+          do {
+            change = false;
+            for (let i = 1; i < randomArr.length; i++) {
+              countComparison++;
+              if (randomArr[i - 1] > randomArr[i]) {
+                let temp = randomArr[i - 1];
+                randomArr[i - 1] = randomArr[i];
+                randomArr[i] = temp;
+                change = true;
+                checkSwap++;
+              }
+				  
+            }
+				showCurrentRes(randomArr)
+          } while (change);
+          return [countComparison, checkSwap];
+        }
+        getSortBubbleMethod(randomArr);
+		  document.write(`<br> Метод сортування "Змішування" <br>`)
+        function getArrMixMethod(randomArr) {
+          let leftIndex = 0;
+          let rightIndex = randomArr.length - 1;
+          let countComparison = 0;
+          let checkSwap = 0;
+          while (leftIndex < rightIndex) {
+            for (let ind = leftIndex; ind < rightIndex; ind++) {
+              countComparison++;
+              if (randomArr[ind] > randomArr[ind + 1]) {
+                let temp = randomArr[ind + 1];
+                randomArr[ind + 1] = randomArr[ind];
+                randomArr[ind] = temp;
+                checkSwap++;
+              }
+            }
+            rightIndex--;
+            for (let index = rightIndex; index > leftIndex; index--) {
+              countComparison++;
+              if (randomArr[index] < randomArr[index - 1]) {
+                let temp = randomArr[index - 1];
+                randomArr[index - 1] = randomArr[index];
+                randomArr[index] = temp;
+                checkSwap++;
+              }
+            }
+
+            leftIndex++;
+				showCurrentRes(randomArr)
+          }
+          return [countComparison, checkSwap];
+        }
+		  getArrMixMethod(randomArr)
+		  document.write(`<br> Метод сортування "Включення" <br>`)
+        function getArrSortMethodInclusion(randomArr) {
+          let countComparison = 0;
+          let checkSwap = 0;
+          for (let i = 1; i < randomArr.length; i++) {
+            const currentEl = randomArr[i];
+            let j = i - 1;
+            countComparison++;
+            while (j >= 0 && randomArr[j] > currentEl) {
+              countComparison++;
+              randomArr[j + 1] = randomArr[j];
+              j = j - 1;
+              checkSwap++;
+            }
+            randomArr[j + 1] = currentEl;
+				showCurrentRes(randomArr)
+          }
+          return [countComparison, checkSwap];
+        }
+		  getArrSortMethodInclusion(randomArr)
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

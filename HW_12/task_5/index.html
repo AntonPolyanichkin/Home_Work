@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_5</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_5</h1>
+    <p>
+      Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук
+      визначити, чи є у масиві ім’я «Olga» і під яким індексом.
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        const names = [
+          "Anna",
+          "Ivan",
+          "Maria",
+          "Sergey",
+          "Nina",
+          "Oleg",
+          "Elena",
+          "Dmitry",
+          "Yulia",
+          "Olga",
+          "Viktor",
+          "Natalia",
+          "Maxim",
+          "Ekaterina",
+          "Pavel",
+          "Irina",
+          "Andrey",
+          "Svetlana",
+          "Igor",
+          "Tatyana",
+          "Alexey",
+        ];
+        function getSortArrName(names) {
+          let leftIndex = 0;
+          let rightIndex = names.length - 1;
+          while (leftIndex < rightIndex) {
+            for (let i = leftIndex; i < rightIndex; i++) {
+              if (names[i] > names[i + 1]) {
+                let temp = names[i + 1];
+                names[i + 1] = names[i];
+                names[i] = temp;
+              }
+            }
+            rightIndex--;
+
+            for (let i = rightIndex; i > leftIndex; i--) {
+              if (names[i] < names[i - 1]) {
+                let temp = names[i - 1];
+                names[i - 1] = names[i];
+                names[i] = temp;
+              }
+
+              
+            }
+				leftIndex++;
+          }
+          return names;
+        }
+        let sortArrOfNames = getSortArrName(names);
+		  function getBinarySearch(sortArrOfNames,searchEl) {
+			let start = 0
+			let end = sortArrOfNames.length-1 // last element of arr
+			while (start<=end) {
+				const middle = Math.floor((start+end)/2)
+				if(sortArrOfNames[middle]===searchEl)return middle
+				if(sortArrOfNames[middle]<searchEl)start = middle+1
+				if(sortArrOfNames[middle]>searchEl)end = middle-1
+			}
+			return false
+		  }
+		  const index = sortArrOfNames.indexOf("Olga")
+		  const searchEl = "Olga"
+		  const binarySearch = getBinarySearch(sortArrOfNames,searchEl)
+		 if(binarySearch){alert(`Є ${searchEl} за індексом: ${index}`)}
+		 else{ alert(`Нема ${searchEl}`)}
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>
