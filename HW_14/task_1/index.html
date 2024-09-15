@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_1</h1>
+    <p><img src="../img/condition.png" alt="" /></p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        //Описати масив об’єктів – сайтів розроблених компанією
+        const arrOfObjectSiteDevelopCompany = [
+          {
+            title: "GoIt",
+            companyOwner: "Vika Miller",
+            sponsors: [
+              {
+                sponsorSurname: "Boldar",
+                sponsorFirstName: "Olga",
+                contribution: 10000,
+              },
+              {
+                sponsorSurname: "Polyan",
+                sponsorFirstName: "Golda",
+                contribution: 30000,
+              },
+            ],
+            yearProduct: 2024,
+            priceWebSite: 40000,
+          },
+          {
+            title: "NewITCompany",
+            companyOwner: "Gleb Ivanovsky",
+            sponsors: [
+              {
+                sponsorSurname: "Boghorod",
+                sponsorFirstName: "Misha",
+                contribution: 2000,
+              },
+              {
+                sponsorSurname: "Ivanenko",
+                sponsorFirstName: "Ivan",
+                contribution: 5000,
+              },
+            ],
+            yearProduct: 2008,
+            priceWebSite: 7000,
+          },
+          {
+            title: "QuantumCode",
+            companyOwner: "Stepan Bandera",
+            sponsors: [
+              {
+                sponsorSurname: "Stafuk",
+                sponsorFirstName: "Ivan",
+                contribution: 30000,
+              },
+              {
+                sponsorSurname: "Bindra",
+                sponsorFirstName: "Gleb",
+                contribution: 20000,
+              },
+            ],
+            yearProduct: 2001,
+            priceWebSite: 50000,
+          },
+        ];
+        //Знайти:
+        //1) загальну вартість усіх сайтів
+        function getWebSitesPrice(arrOfObjectSiteDevelopCompany) {
+          const webSitePrice = arrOfObjectSiteDevelopCompany.reduce(
+            (prevSum, price) => prevSum + price.priceWebSite,
+            0
+          );
+          return webSitePrice;
+        }
+        const webSitePrice = getWebSitesPrice(arrOfObjectSiteDevelopCompany);
+        console.log(`Загальна вартість усіх сайті - ${webSitePrice}`);
+        //2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+        function getsitesCreated2000To2009(arrOfObjectSiteDevelopCompany) {
+          const sitesCreated2000To2009 = arrOfObjectSiteDevelopCompany.reduce(
+            (prevSite, site) =>
+              site.yearProduct >= 2000 && site.yearProduct <= 2009
+                ? (prevSite += 1)
+                : prevSite,
+            0
+          );
+          return sitesCreated2000To2009;
+        }
+        const sitesCreated2000To2009 = getsitesCreated2000To2009(
+          arrOfObjectSiteDevelopCompany
+        );
+        console.log(
+          ` Кількість сайтів, що було зроблено між 2000 та 2009 роками - ${sitesCreated2000To2009}`
+        );
+        //3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+        function getquantitySite(arrOfObjectSiteDevelopCompany) {
+          const quantitySite = arrOfObjectSiteDevelopCompany.reduce(
+            (sumRes, elementOfArr) => {
+              const sum = elementOfArr.sponsors.reduce(
+                (prevResSum, elOfArrSum) =>
+                  prevResSum + elOfArrSum.contribution,
+                0
+              );
+              return elementOfArr > 100000 ? (sumRes += 1) : sumRes;
+            },
+            0
+          );
+          return quantitySite;
+        }
+        const quantitySite = getquantitySite(arrOfObjectSiteDevelopCompany);
+        console.log(
+          ` Кількість сайтів, де сума спонсорських вкладень була більшою за 100000 - ${quantitySite}`
+        );
+        //4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+        function getlistOfSponsors(arrOfObjectSiteDevelopCompany) {
+          const listOfSponsors = arrOfObjectSiteDevelopCompany.map(
+            el => el.sponsors
+          );
+          return listOfSponsors;
+        }
+        const listOfSponsors = getlistOfSponsors(arrOfObjectSiteDevelopCompany);
+        console.log(listOfSponsors);
+        //5) знайти рік, коли прибуток був найбільшим
+        function getyearGreaterProfit(arrOfObjectSiteDevelopCompany) {
+          const yearGreaterProfit = arrOfObjectSiteDevelopCompany.reduce(
+            (prevResProfit, profit) => {
+              return profit.priceWebSite > prevResProfit.priceWebSite
+                ? profit.yearProduct
+                : prevResProfit;
+            }
+          );
+          return yearGreaterProfit;
+        }
+        const yearGreaterProfit = getyearGreaterProfit(
+          arrOfObjectSiteDevelopCompany
+        );
+        console.log(yearGreaterProfit);
+        //6) упорядкувати список за спаданням прибутку
+        function getarrProfit(arrOfObjectSiteDevelopCompany) {
+          const arrProfit = arrOfObjectSiteDevelopCompany.sort(
+            (firstEl, secondEl) => {
+              if (firstEl.priceWebSite > secondEl.priceWebSite) return -1;
+              else if (firstEl.priceWebSite < secondEl.priceWebSite) return 1;
+              else return 0;
+            }
+          );
+          return arrProfit;
+        }
+        const arrProfit = getarrProfit(arrOfObjectSiteDevelopCompany);
+        console.log(arrProfit);
+        //7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+        function getArrPriceUnder10000AndGreater10000(
+          arrOfObjectSiteDevelopCompany
+        ) {
+          let firstarrWebSitePriceUnder10000 = JSON.parse(
+            JSON.stringify(
+              arrOfObjectSiteDevelopCompany.filter(
+                price => price.priceWebSite < 10000
+              )
+            )
+          );
+
+          let secondArrWebSitePriceGreater10000 = JSON.parse(
+            JSON.stringify(
+              arrOfObjectSiteDevelopCompany.filter(
+                price => price.priceWebSite > 10000
+              )
+            )
+          );
+          return {
+            firstArr: firstarrWebSitePriceUnder10000,
+            secondArr: secondArrWebSitePriceGreater10000,
+          };
+        }
+        const arrOfPrice = getArrPriceUnder10000AndGreater10000(
+          arrOfObjectSiteDevelopCompany
+        );
+        console.log(arrOfPrice.firstArr);
+        console.log(arrOfPrice.secondArr);
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>
