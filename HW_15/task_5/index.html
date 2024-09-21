@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_5</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_5</h1>
+    <p>Розробити клас «Керівник танців»</p>
+    <script>
+        if (confirm(`Почати тестування`)) {
+         class DanceLeader{
+				constructor(arrOfBoyNames,arrOfGirlsNames){
+            this.arrOfBoyNames=arrOfBoyNames
+            this.arrOfGirlsNames=arrOfGirlsNames
+				}
+				getRandomBoy(){
+					let randBoy = Math.floor(Math.random()*(this.arrOfBoyNames.length))
+					return this.arrOfBoyNames[randBoy]
+				}
+				getRandomGirl(){
+					let randGirl = Math.floor(Math.random()*(this.arrOfGirlsNames.length))
+					return this.arrOfGirlsNames[randGirl]
+				}
+				getDancePartner(){
+					let boyName = this.getRandomBoy()
+					let girlName = this.getRandomGirl()
+					return document.write(`<br> ${boyName} танцює з ${girlName} <br>`)
+				}
+				run(){
+					return setInterval(()=> this.getDancePartner(),5000)
+				}
+			}
+			// Масив імен хлопців
+            const boys = ["Олександр", "Іван", "Максим", "Дмитро", "Андрій"];
+
+         // Масив імен дівчат
+            const girls = ["Анна", "Марія", "Олена", "Ірина", "Катерина"];
+				const danceLeader = new DanceLeader(boys,girls)
+				danceLeader.run()
+        }
+    </script>
+    </a>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

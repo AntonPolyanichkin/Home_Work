@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_1</h1>
+    <p>
+      Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є
+      заєць і 0 в іншому випадку.
+    </p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        alert(`Гра: "Попади в зайця" (У вас є 3 зайця та безкінечна кількість патронів )`);
+        const arrOfHare = [0, 1, 1, 0, 1, 0, 0, 1, 1];
+        class ShootingRange {
+          constructor(arrOfHare) {
+            //Унікальна властивість
+            this.arrOfHare = arrOfHare;
+          }
+          //Методи - спільні для всіх
+          getUserShoot() {
+            let userShoot = parseInt(prompt(`Введіть цифру від 0 до 8`));
+            return userShoot;
+          }
+          getShoot(count = 0) {
+            do {
+              let userShoot = this.getUserShoot();
+              if (userShoot >= 0 && userShoot <9) {
+                if (this.arrOfHare[userShoot] === 1) {
+                  count++;
+                  alert(`Ви травмували бідного зайця`);
+                } else {
+                  alert(`Ха, заєць втік`);
+                }
+              } else {
+                alert(`Введіть коректне число згідно з умовою`);
+              }
+            } while (count < 3);
+          }
+          getShootingGallery() {
+            return document.write(JSON.stringify(this.arrOfHare));
+          }
+        }
+        const shootRange = new ShootingRange(arrOfHare);
+        shootRange.getShoot();
+        shootRange.getShootingGallery();
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

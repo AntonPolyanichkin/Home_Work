@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_3</h1>
+    <p>Розробити клас MultChecker для перевірки таблиці множення</p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        class MultChecker {
+          constructor(number, correctUserAnswer = 0, incorrectUserAnswer = 0) {
+            this.number = number;
+            this.correctUserAnswer = correctUserAnswer;
+            this.incorrectUserAnswer = incorrectUserAnswer;
+          }
+          //Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+          getRandNum(min = 1, max = 9) {
+            return min + Math.floor(Math.random() * (max - min + 1));
+          }
+
+          showExample() {
+            let randNum = this.getRandNum()
+				let answer = parseInt(prompt(`Надайте відповідь: ${randNum}*${this.number}`))
+				let correct = randNum*this.number
+				return {answer,correct}
+          }
+			 getCheckAnswer(){
+				while (this.correctUserAnswer<3) {
+				let {answer,correct} = this.showExample()
+				if(answer===correct){
+					this.correctUserAnswer++
+					alert(`Молодець!`)
+				}
+				else{
+					alert(`Йди вчити таблицю множення`)
+					this.incorrectUserAnswer++
+				}
+				}
+				return `Тест завершено! Правильних відповідей: ${this.correctUserAnswer}, помилок: ${this.incorrectUserAnswer}`
+			 }
+			 
+        }
+		  const userChooseANumber = parseInt(prompt(`Оберіть число`))
+        const multChecker = new MultChecker(userChooseANumber);
+        document.write(multChecker.getCheckAnswer());
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

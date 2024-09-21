@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_4</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_4</h1>
+    <p>Розробити клас Baner</p>
+    <script>
+        if (confirm(`Почати тестування`)) {
+          class Baner {
+            constructor(objectArr) {
+              this.objectArr = objectArr;
+            }
+            getRandomIMG() {
+              let randomEl = Math.floor(Math.random() * this.objectArr.length);
+      return this.objectArr[randomEl]
+            }
+            showBaner() {
+              let randomImg = this.getRandomIMG();
+              return document.write(`<div><a href="${randomImg.link}" target="_blank">${randomImg.photo}</a></div>`);
+            }
+				getRun(){
+					return setInterval(()=>this.showBaner(),5000)
+				}
+          }
+          const objectArr = [
+            {
+              photo: `<img src="../task_4/img/auto_1.webp">`,
+              link: "https://www.autoscout24.com.ua/proposyzii/volkswagen-arteon-2-0-bitdi-scr-4motion-dsg-r-line-tetto-pano---fdb42689-ddcd-4989-b714-9021591e827a?ipc=recommendation&ipl=homepage-engine-itemBased&position=10&source_otp=t50&ap_tier=t50&source=homepage_most-searched",
+            },
+            {
+              photo: `<img src="../task_4/img/auto_2.webp">`,
+              link: "https://www.autoscout24.com.ua/proposyzii/bmw-530-5-serie-530e-iperformance-m-sport-hud-hifi-soft-cl-e---f78be8a9-3a0e-43ff-84fb-5ed8acb087fa?ipc=recommendation&ipl=homepage-engine-itemBased&position=3&source_otp=t50&ap_tier=t50&source=homepage_most-searched",
+            },
+            {
+              photo: `<img src="../task_4/img/auto_3.webp">`,
+              link: "https://www.autoscout24.com.ua/proposyzii/mercedes-benz-c-250-amg-aut-led-leder-camera-night-pdc---66d927ad-d3b9-493a-b93e-9d3b8735134f?ipc=recommendation&ipl=homepage-engine-itemBased&position=4&source_otp=t50&ap_tier=t50&source=homepage_most-searched",
+            },
+            {
+              photo: `<img src="../task_4/img/auto_4.webp">`,
+              link: "https://www.autoscout24.com.ua/proposyzii/mercedes-benz-c-250-amg-aut-led-leder-camera-night-pdc---66d927ad-d3b9-493a-b93e-9d3b8735134f?ipc=recommendation&ipl=homepage-engine-itemBased&position=4&source_otp=t50&ap_tier=t50&source=homepage_most-searched",
+            },
+            {
+              photo: `<img src="../task_4/img/auto_5.webp">`,
+              link: "https://www.autoscout24.com.ua/proposyzii/volvo-s90-t5-inscription-trekhaak-open-dak---e9f97de0-0010-4c3b-842e-146e9dae6106?ipc=recommendation&ipl=homepage-engine-itemBased&position=5&source_otp=t50&ap_tier=t50&source=homepage_most-searched",
+            },
+          ];
+          const baner = new Baner(objectArr);
+          baner.getRun();
+        }
+    </script>
+    </a>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_2</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Task_2</h1>
+    <p>Створити об’єкт «Авто».</p>
+    <script>
+      if (confirm(`Почати тестування`)) {
+        class MyDreamCar {
+          constructor(
+            brand,
+            tankSize,
+            availableLiters,
+            numberOfSeats,
+            passengersQuantity
+          ) {
+            this.brand = brand;
+            this.tankSize = tankSize;
+            this.availableLiters = availableLiters;
+            this.numberOfSeats = numberOfSeats;
+            this.passengersQuantity = passengersQuantity;
+          }
+          //Заправка на вказану кількість літрів
+          getFueling(liters) {
+            return (this.availableLiters += liters);
+          }
+          //Виведення кількості пасажирів
+          getQuantityOfPassengers() {
+            return `Кількість пасажирів : ${this.passengersQuantity}`
+          }
+          //Додавання пасажирів
+          getAddPassengers(addPassenger) {
+            return ` <br> Загальна кількість пасажирів ${this.passengersQuantity} + ${addPassenger}`
+          }
+          //Висадка пасажирів
+          getDropOffPassengers(dropPassenger) {
+            return `<br> Висадка пасажирів : ${this.passengersQuantity} - ${dropPassenger}`
+          }
+        }
+        const myCar = new MyDreamCar("BMW", 94, 60, 4, 4);
+        document.write(
+          ` Заправка на 30 літрів -  ${myCar.getFueling(30)} <br>`
+        );
+		  document.write(myCar.getQuantityOfPassengers())
+		  document.write(myCar.getAddPassengers(2))
+		  document.write(myCar.getDropOffPassengers(3))
+
+      }
+    </script>
+    <br />
+    <br />
+    <a href="../index.html"> Повернутись назад </a>
+  </body>
+</html>
