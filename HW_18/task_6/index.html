@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_6</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<script>
+		function getTable() {
+			let quantity = document.getElementById('quantityOfMark').value
+			quantity = Number(quantity)
+			const myTable = document.createElement('table')
+			const myTr = document.createElement('tr')
+			for (let mytd = 0; mytd < quantity; mytd++) {
+				const myTd = document.createElement('td')
+				const myInput = document.createElement('input')
+				myInput.type = 'number'
+				myTd.append(myInput)
+				myTr.append(myTd)
+			}
+			myTable.append(myTr)
+			return myTable
+		}
+		function getAppendMyTable() {
+			const table = getTable()
+			document.body.append(table)
+		}
+		function getAverageValue() {
+			const mark = document.querySelectorAll('input')
+			const quantity = document.getElementById('quantityOfMark').value
+			let total = 0
+			for (let el = 0; el < mark.length; el++) {
+				total += Number(mark[el].value)
+			}
+			const calculation = total / quantity
+			document.getElementById('markResult').innerText = calculation
+		}
+		window.onload = () => {
+			document.querySelector('button').onclick = getAppendMyTable
+			document.getElementById('resOfMark').onclick = getAverageValue
+		}
+	</script>
+
+	<h1>Task_6</h1>
+	<p>Користувач задає кількість оцінок і натискає на кнопку «get table».
+		В результаті формується таблиця з input, куди
+		користувач вводить оцінки. Після цього натискає на кнопку “get sum” і знаходить середнє значення.
+	</p>
+	Кількість оцінок : <input type="number" id="quantityOfMark" value="0">
+	<button>get table</button> <br>
+	sum - <span id="markResult"></span><br>
+	<button id="resOfMark"> get sum </button>
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

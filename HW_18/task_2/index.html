@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_2</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<script>
+		function convertFunction() {
+			const dollarRate = 41
+			const euroRate = 45
+			const grn = document.getElementById('grnValue').value
+			const dollarAmount = grn / dollarRate
+			const euroAmount = grn / euroRate
+			document.getElementById('resEuro').value = parseFloat(`${euroAmount.toFixed(2)}`)
+			document.getElementById('resDollar').value = parseFloat(`${dollarAmount.toFixed(2)}`)
+		}
+		window.onload = function () {
+			document.querySelector('button').onclick = convertFunction
+		}
+	</script>
+
+	<h1>Task_2</h1>
+	<p>
+		<img src="img/Знімок екрана 2024-10-05 о 11.47.33.png">
+	</p>
+	<div>
+		<div>Сума в гривнях : <input type="text" id="grnValue"></div>
+		<button>Конвертувати</button>
+		<hr>
+		<div>Сума в євро : <input type="text" id="resEuro"></div>
+		<div>Сума в доларах : <input type="text" id="resDollar"></div>
+	</div>
+	<br />
+	<br />
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

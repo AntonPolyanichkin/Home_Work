@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_1</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<script>
+		function getCulculate(mathematicalOperations) {
+			const firstNum = parseFloat(document.getElementById('firstNum').value)
+			const secondNum = parseFloat(document.getElementById('secondNum').value)
+			let res
+			if (mathematicalOperations === 'add') { res = firstNum + secondNum }
+			else if (mathematicalOperations === 'subtract') { res = firstNum - secondNum }
+			else if (mathematicalOperations === 'multipli') { res = firstNum * secondNum }
+			else if (mathematicalOperations === 'division') {
+				if (secondNum === 0) {
+					alert('Неможливо поділити на 0')
+				}
+				else { res = firstNum / secondNum }
+			}
+			document.getElementById('res').value = parseFloat(`${res}`)
+		}
+		window.onload = function () {
+			document.getElementById('add').onclick = () => { getCulculate('add') }
+			document.getElementById('subtract').onclick = () => { getCulculate('subtract') }
+			document.getElementById('multipli').onclick = () => { getCulculate('multipli') }
+			document.getElementById('division').onclick = () => { getCulculate('division') }
+		}
+	</script>
+
+	<h1>Task_1</h1>
+	<p>
+		<img src="img/Знімок екрана 2024-10-04 о 18.13.56.png">
+	</p>
+	<div>
+		<div>First number <input type="text" id="firstNum"></div>
+		<div>Second number <input type="text" id="secondNum"></div>
+		<button id="add">Додати</button>
+		<button id="subtract">Відняти</button>
+		<button id="multipli">Помножити</button>
+		<button id="division">Поділити</button>
+		<hr>
+		Результат : <input type="text" id="res">
+	</div>
+	<br />
+	<br />
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

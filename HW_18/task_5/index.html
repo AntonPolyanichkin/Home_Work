@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_5</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<script>
+		function getRandomNumber(minNumber = 1, maxNumber = 100) {
+			return minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+		}
+		function getMySuperTable(row = 3, col = 4) {
+			const table = document.createElement('table')
+			for (let myRow = 0; myRow < row; myRow++) {
+				const mySuperRow = document.createElement('tr')
+				for (let myCol = 0; myCol < col; myCol++) {
+					const mySuperCol = document.createElement('td')
+					mySuperCol.innerText = getRandomNumber()
+					mySuperRow.append(mySuperCol)
+				}
+				table.append(mySuperRow)
+			}
+			return table
+		}
+		function getActivateScript() {
+			const table = getMySuperTable()
+			document.body.append(table)
+		}
+		window.onload = function () {
+			document.querySelector('button').onclick = getActivateScript
+		}
+	</script>
+
+	<h1>Task_5</h1>
+	<p>Відобразити таблицю 3*4 з випадковими числами
+		(її треба динамічно створити і вставити на сторінку)</p>
+	<button>Генерація таблиці</button>
+
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

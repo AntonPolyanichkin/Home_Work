@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_4</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<script>
+		function mySuperPredictor(params) {
+			const arrOfPrediction = ["Мир", "Перемога", "Гроші", "Машина", "Відпочинок", "Складені іспити на сесії", "Написана курсова"]
+			const myContainerBody = document.querySelector('body')
+			for (let myDiv = 0; myDiv < 3; myDiv++) {
+				const createEl = document.createElement('div')
+				const randomIndex = Math.floor(Math.random() * arrOfPrediction.length)
+				createEl.innerText = arrOfPrediction[randomIndex]
+				myContainerBody.append(createEl)
+				}
+		}
+		window.onload = function () {
+			document.querySelector('button').onclick = mySuperPredictor
+		}
+
+		
+	</script>
+
+	<h1>Task_4</h1>
+	<p>
+		Наперед задано у скрипті масив зі списком бажань. Після завантаження сторінки випадковим чином вибираються 3 і
+		відображаються у окремих div (їх треба створити і додати на сторінку) </p>
+	<button>Генерувати передбачення</button>
+
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

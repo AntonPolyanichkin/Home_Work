@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_7</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<script>
+		function getSumOfServices() {
+			const selectedTransport = parseFloat(document.querySelector('#transport').value)
+			totalFood = 0
+			const food = document.querySelectorAll('input[type="checkbox"]:checked').forEach(element => {
+				totalFood+=parseFloat(element.value)
+			})
+			const gid = parseFloat( document.querySelector('input[type="radio"]:checked').value)
+			let sum = 0
+			const total = selectedTransport + totalFood + gid
+			document.getElementById('res').innerText = parseFloat(total)
+
+		}
+		window.onload = () => {
+			document.querySelector('button').onclick = getSumOfServices
+		}
+	</script>
+
+	<h1>Task_7</h1>
+	<p>Задача 7. Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з видів транспорту (авто,
+		автобус, літак - випадаючий список), харчування (сніданок, обід, вечеря – checkbоx) та одного з 3-х
+		гідів(використати - radio buttons). Ціни визначте самі. Підрахувати загальну вартість.
+	</p>
+	<div>
+		Опції подорожі
+		<select id="transport">
+			<option selected>транспорт</option>
+			<option value="100"> авто </option>
+			<option value="50"> автобус </option>
+			<option value="200"> літак </option>
+		</select>
+		<input type="checkbox" value="100"> сніданок
+		<input type="checkbox" value="150"> обід
+		<input type="checkbox" value="125"> вечеря
+		<input type="radio" name="guide" value="1000">Vika
+		<input type="radio" name="guide" value="100">Petro
+		<input type="radio" name="guide" value="400">Ivan
+		Результат : <span id="res"></span>
+	</div>
+	<button> Результат </button>
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>
