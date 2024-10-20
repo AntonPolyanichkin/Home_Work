@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_1</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<p>Дано 10 рядків тексту «Hello!» у окремих div. При кліку на якийсь із них усі наступні повинні бути зафарбовані у
+	червоний колір.
+</p>
+
+<body>
+
+
+	<script>
+		function getDivHello() {
+			const myContainerDiv = document.createElement('div')
+			myContainerDiv.id = 'myContainer'
+			for (let index = 0; index < 10; index++) {
+				const newElDiv = document.createElement('div')
+				newElDiv.style.color = 'yellow'
+				newElDiv.innerText = 'Hello!'
+				myContainerDiv.append(newElDiv)
+			}
+			return myContainerDiv
+		}
+		function getMyDiv() {
+			const myDiv = getDivHello()
+			document.body.append(myDiv)
+		}
+		getMyDiv()
+		let myContainerDiv = document.getElementById('myContainer')
+		myContainerDiv.onclick = function (e) {
+			let curEl = e.target
+
+			if (curEl.tagName === 'DIV') {
+				curEl.style.color = 'red'
+
+				while (curEl.nextElementSibling && curEl.nextElementSibling.tagName === 'DIV') {
+					curEl = curEl.nextElementSibling
+					curEl.style.color = 'red'
+				}
+
+			}
+		}
+
+
+	</script>
+
+
+
+	</div>
+	<br />
+	<br />
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

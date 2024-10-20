@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_4</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<p>Задача 4. Дано 3 таблиці розмірності 3*3 з випадковими числами. Якщо відбувається клік на якійсь із клітинок, то до
+	відповідної таблиці додається червона рамка (спробуйте додати можливість відображення кількості кліків біля назви
+	таблиці з використанням відповідно доданого для цього атрибута).
+</p>
+
+<body>
+
+
+	<script>
+		function table() {
+			const myContainer = document.createElement('div')
+			myContainer.id = 'myContainer'
+			for (let index = 0; index < 3; index++) {
+				const mySpans = document.createElement('span')
+				mySpans.id = `span_${index + 1}`
+				mySpans.innerText = `Кількість кліків - 0`
+				mySpans.style.cssText = 'color: yellow;  display : block; padding: 10px'
+				myContainer.append(mySpans)
+			}
+			for (let tb = 0; tb < 3; tb++) {
+				const myTable = document.createElement('table')
+				myTable.style.cssText = 'color: yellow; border-collapse: collapse; witdh: auto; height: auto; text-align: center; '
+				myTable.setAttribute('clickCount', '0')
+				myTable.id = `table_${tb + 1}`
+				const myCaptionTable = document.createElement('caption')
+				myCaptionTable.style.color = 'yellow'
+				myCaptionTable.innerText = `table - ${tb + 1}`
+				myTable.append(myCaptionTable)
+				for (let row = 0; row < 3; row++) {
+					const myTr = document.createElement('tr')
+					for (let col = 0; col < 3; col++) {
+						const myTd = document.createElement('td')
+						myTd.innerText = 1 + Math.floor(Math.random() * (10 - 1 + 1))
+						myTd.style.cssText = 'font-size: 30px; border : 3px solid  yellow;'
+						myTr.append(myTd)
+					}
+					myTable.append(myTr)
+				}
+				const myBr = document.createElement('br')
+				myTable.append(myBr)
+				myContainer.append(myTable)
+			}
+
+			return myContainer
+		}
+
+		function pastMyTableAndSpaninContainerAndBody() {
+			const myTableAndSpan = table()
+			document.body.append(myTableAndSpan)
+}
+
+		pastMyTableAndSpaninContainerAndBody()
+
+		function clickedTable(e) {
+			const clickedEl = e.target
+			if (clickedEl.tagName === 'TD') {
+				const afterClick = clickedEl.closest('table')
+				const allTd = afterClick.querySelectorAll('td')
+				for (const el of allTd) {
+					el.style.border = '3px solid red'
+				}
+			}
+		}
+		function counter(e) {
+			const clickEl = e.target
+			if (clickEl.tagName === 'TD') {
+				const table = clickEl.closest('table')
+				let countClick = parseInt(table.getAttribute('clickCount'))
+				countClick += 1
+				table.setAttribute('clickCount', countClick)
+				const tableNumber = table.id.split('_')[1];
+				const span = document.getElementById(`span_${tableNumber}`);
+				span.innerText = `Кількість кліків: ${countClick}`;
+			}
+		}
+		window.onload = () => {
+			document.body.addEventListener('click', clickedTable)
+			document.getElementById('table_1').addEventListener('click', counter)
+			document.getElementById('table_2').addEventListener('click', counter)
+			document.getElementById('table_3').addEventListener('click', counter)
+		}
+
+	</script>
+
+
+	</div>
+	<br />
+	<br />
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

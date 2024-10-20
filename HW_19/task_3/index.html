@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_3</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<p>Дано 5 випадковим чином згенерованих нумерованих списків з рандомними числами (кількість елементів у списку випадкова
+	від 1 до 10, елементи випадкові – від 1 до 100). При натисненні на кнопку нумеровані списки з парною кількістю
+	елементів зафарбувати у зелений колір, інші у червоний.
+</p>
+
+<body>
+
+
+	<script>
+
+		function myList() {
+			const getUl = document.createElement('ul')
+			const randquantity = 1 + Math.floor(Math.random() * (10 - 1 + 1))
+			for (let myLi = 0; myLi < randquantity; myLi++) {
+				const getLi = document.createElement('li')
+				getLi.style.color = "yellow"
+				const randNum = 1 + Math.floor(Math.random() * (100 - 1 + 1))
+				getLi.innerText = randNum
+				getUl.append(getLi)
+			}
+			return getUl
+		}
+		function creatButton() {
+			const myBtn = document.createElement('button')
+			myBtn.style.color = 'black'
+			myBtn.style.backgroundColor = 'yellow'
+			myBtn.style.margin = '25px'
+			myBtn.innerText = 'click'
+			return myBtn
+		}
+		function myContainer() {
+			const container = document.createElement('div')
+			container.id = 'myContainer'
+			for (let index = 0; index < 5; index++) {
+				const myListFunc = myList()
+				container.append(myListFunc)
+			}
+			const btn = creatButton()
+			container.append(btn)
+			return container
+		}
+		function myListAppendInBody() {
+			const myContainerDiv = myContainer()
+			document.body.append(myContainerDiv)
+		}
+		myListAppendInBody()
+		function redOrGreenColorEl(e) {
+			const myUl = document.querySelectorAll('ul')
+			if (e.target.tagName === 'BUTTON') {
+				for (const el of myUl) {
+					for (let i = 0; i < el.children.length; i++) {
+						const liValue = parseInt(el.children[i].innerText)
+						if (liValue % 2 === 0) {
+							el.children[i].style.color = 'green'
+						}
+						else {
+							el.children[i].style.color = 'red'
+						}
+
+					}
+				}
+			}
+
+		}
+		window.onload = () => {
+			const btn = document.querySelector('button')
+			btn.addEventListener('click', redOrGreenColorEl)
+		}
+
+	</script>
+
+
+
+	</div>
+	<br />
+	<br />
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

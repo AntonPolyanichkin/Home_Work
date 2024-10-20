@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_4</title>
+	<link rel="stylesheet" href="style.css" />
+
+</head>
+<p>Задача 5. Відображаємо картки товарів, які користувач може вибирати. Вибраний товар має зелену рамку (при кліку
+	робити toogle з класом вибраного елемента)</p>
+
+<body>
+	<div class="container">
+		<div><img src="img/mac_1.avif"></div>
+		<div><img src="img/mac_2.avif"></div>
+		<div><img src="img/mac_3.avif"></div>
+		<div><img src="img/mac_4.avif"></div>
+	</div>
+
+	<script>
+		function reverse() {
+			const container = document.querySelector('.container')
+			const myImg = document.querySelectorAll('img')
+			container.onclick = (e) => {
+				if (e.target.tagName === 'IMG') {
+					const imgEl = document.className = 'borderOnImg'
+					e.target.classList.toggle('borderOnImg')
+				}
+			}
+
+		}
+
+
+		reverse()
+
+
+	</script>
+
+
+	</div>
+	<br />
+	<br />
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

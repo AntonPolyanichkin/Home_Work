@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_2</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<p>Задача 2. Дано 5 елементів input. При введенні значення у якийсь із них необхідно автоматично заповнювати інші усі
+	попередні у спадному порядку(кожен попередній має значення на 1 менше за наступний), усі наступні на 1 більше (кожен
+	наступне на 1 більше за попереднього)
+</p>
+
+<body>
+
+
+	<script>
+		function getMyContainerAndInput() {
+			const myDivContainer = document.createElement('div')
+			myDivContainer.id = 'myContainer'
+			for (let myInput = 0; myInput < 5; myInput++) {
+				const inp = document.createElement('input')
+				inp.style.color = 'black'
+				inp.style.background = 'yellow'
+				inp.style.border = '2px solid black'
+				myDivContainer.append(inp)
+			}
+			return myDivContainer
+		}
+		function appendContainer() {
+			const myContainer = getMyContainerAndInput()
+			document.body.append(myContainer)
+		}
+		appendContainer()
+		function inpValue() {
+			const myInp = document.querySelectorAll('input')// список інпутів 
+			myInp.forEach((el, index) => el.addEventListener("input", () => { //перебір елементів з використанням методу addEventListener
+				let value =parseInt(el.value) // змінна у яку передаються елементи перетворюється на число, адже input дає стрінгу
+				for (let curEl = index - 1; curEl >= 0; curEl--) {
+    //значення поточного елемента   значеня  різниця індиксів
+					myInp[curEl].value = value - (curEl - index)
+
+				}
+				for (let curEl = index + 1; curEl < myInp.length; curEl++) {
+					myInp[curEl].value = value + ( curEl + index)
+
+				}
+			}))
+		}
+		inpValue()
+
+	</script>
+
+
+
+	</div>
+	<br />
+	<br />
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>
