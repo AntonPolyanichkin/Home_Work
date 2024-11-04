@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_2</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<h1>Task_2</h1>
+	<p>
+		Задача 2. Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового
+		еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та
+		визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+	</p>
+	<script>
+		if (confirm(`Почати тестування`)) {
+			class TMoney {
+				#dollarRate
+				get DollarRate() {
+					return this.#dollarRate
+				}
+				set DollarRate(newValueDollarRate) {
+					if (newValueDollarRate < 0) {
+						throw new Error(`Ви ввели непраивльний курс`)
+					}
+					else{
+					this.#dollarRate=newValueDollarRate}
+				}
+				#balance
+				get Balance() {
+					return this.#balance * this.DollarRate
+				}
+				set Balance(newValueCrnBalance) {
+					if (newValueCrnBalance < 0) { throw new Error(`Ви ввели некоректні значення у гривнях`) }
+					else {
+						this.#balance = newValueCrnBalance / this.DollarRate
+					}
+
+				}
+				constructor(dolarRate, grnBalance) {
+					this.DollarRate = dolarRate
+					this.Balance = grnBalance
+				}
+				//метод перевірки
+				grnValueCorrect(grnBalance) {
+					if(grnBalance<0)
+					throw new Error(`Некоректне значення ${grnBalance}!`)
+				}
+				// метод додавання
+				sumOfGrn(grnBalance) {
+					this.grnValueCorrect(grnBalance)
+					this.Balance = this.Balance + grnBalance
+				}
+				// метод вилучення
+				removalOfGrn(grnBalance) {
+					this.grnValueCorrect(grnBalance)
+					if (grnBalance > this.Balance) {
+						throw new Error(`Некоректні значення`)
+					}
+					return this.Balance = this.Balance - grnBalance
+				}
+				//курс долара, при якому сума у гривнях збільшиться на 100
+				sumGrnIncrease100() {
+					return (this.Balance + 100) / this.#balance
+				}
+				toString() {
+					return `Курс: ${this.DollarRate}, баланс:  ${this.Balance},курс долара, при якому сума у гривнях збільшиться на 100: ${this.sumGrnIncrease100()} `
+				}
+			}
+			const money = new TMoney(40, 4000)
+			document.write(money)
+		}
+	</script>
+	<br />
+	<br />
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

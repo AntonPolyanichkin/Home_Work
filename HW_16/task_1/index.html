@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_1</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<h1>Task_1</h1>
+	<p>
+		Задача 1. Створити клас TDate для роботи із датами у форматі “день.місяць.рік”. Дата представляється структурою із
+		трьома полями. Реалізувати методи збільшення/зменшення дати на певну кількість днів, місяців чи років. Введення та
+		виведення дати реалізувати за допомогою методу toString.
+	</p>
+	<script>
+		if (confirm(`Почати тестування`)) {
+			//Створити клас TDate
+			class TDate {
+				//створив приватні поля
+				#day
+				#month
+				#year
+				constructor(day, month, year) {
+					this.Day = day
+					this.Month = month
+					this.Year = year
+				}
+				//метод зчитування
+				get Day() {
+					return this.#day
+				}
+				//метод зміни значень
+				set Day(day) {
+					if (day > 31 || day < 1) {
+						throw new Error(`Введені некоректні значення`)
+					}
+					else {
+						return this.#day = day
+					}
+				}
+				//метод зчитування
+				get Month() {
+					return this.#month
+				}
+				//метод зміни значень
+				set Month(month) {
+					if (month > 12 || month < 1) {
+						throw new Error(`Введені некоректні значення`)
+					}
+					else {
+						return this.#month = month
+					}
+				}
+				get Year() {
+					return this.#year
+				}
+				set Year(year) {
+					if (year < 0) { throw new Error(`Введені некоректні значення`) }
+					else {
+						return this.#year = year
+					}
+				}
+				//Методи Збільшення, зменшення
+				getIncreaseDay(day) {
+					this.#day += day
+					while (this.#day > 31) {
+						this.#day = 1
+						this.month++
+					}
+				}
+				getDecreaseDay(day) {
+					this.#day -= day
+					while (this.#day < 1) {
+						this.#day = 1
+						this.#month--
+					}
+				}
+				getIncreaseMonth(month) {
+					this.#month += month
+					if (this.#month > 12) {
+						this.#month = 1
+						this.#year++
+					}
+				}
+				getDecreaseMonth(month) {
+					this.#month -= month
+					if (this.#month < 1) {
+						this.#month = 1
+						this.#year--
+					}
+				}
+				getIncreaseYear(year) {
+					this.#year += year
+				}
+				getDecreaseYear(year) {
+					this.#year -= year
+				}
+				toString() {
+					return `${this.Day}.${this.Month}.${this.Year}`
+				}
+			}
+			const date = new TDate(26, 10, 2005)
+			//date.getIncreaseDay(0)
+			//date.getIncreaseMonth(3)
+			//date.getIncreaseYear(18)
+			//date.getDecreaseDay(30)
+			//date.getDecreaseMonth(12)
+			//date.getDecreaseYear(5)
+			document.write(date.toString())
+
+		}
+	</script>
+	<br />
+	<br />
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>
