@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Task_1</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<p>Задача 1. Використовуючи один з АРІ
+	https://github.com/public-apis/public-apis#animals
+	та функцію fetch організувати завантаження та відображення даних
+</p>
+
+<body>
+	<div id="dogImageContainer">
+		<p>Натисніть кнопку для завантаження зображення собаки</p>
+	</div>
+	<button id="loadDogImage">Завантажити зображення</button>
+
+
+	<script>
+		class DogAPI {
+			constructor() {
+				this.apiURL = "https://dog.ceo/api/breeds/image/random";
+			}
+
+			async fetchDogImage() {
+				try {
+					const response = await fetch(this.apiURL);
+					const data = await response.json();
+					if (data.status === "success") {
+						return data.message;
+					} else {
+						throw new Error("Failed to fetch dog image");
+					}
+				} catch (error) {
+					console.error("Error:", error);
+					return null;
+				}
+			}
+		}
+
+
+		class DogUI {
+			constructor() {
+				this.imageContainer = document.getElementById("dogImageContainer");
+				this.loadButton = document.getElementById("loadDogImage");
+				this.loadButton.addEventListener("click", () => this.loadImage());
+				this.api = new DogAPI();
+			}
+
+
+			async loadImage() {
+				const imageUrl = await this.api.fetchDogImage();
+				if (imageUrl) {
+					this.renderImage(imageUrl);
+				} else {
+					this.showError("Не вдалося завантажити зображення.");
+				}
+			}
+
+			renderImage(imageUrl) {
+				this.imageContainer.textContent = '';
+				const img = document.createElement("img");
+				img.src = imageUrl;
+				img.alt = "Dog";
+				img.style.maxWidth = "500px";
+				img.style.height = "auto";
+				this.imageContainer.appendChild(img);
+			}
+
+
+			showError(message) {
+				this.imageContainer.textContent = message;
+				this.imageContainer.style.color = "red";
+			}
+		}
+
+
+		document.addEventListener("DOMContentLoaded", () => {
+			new DogUI();
+		});
+	</script>
+
+
+
+	</div>
+	<br />
+	<br />
+	<a href="../index.html"> Повернутись назад </a>
+</body>
+
+</html>

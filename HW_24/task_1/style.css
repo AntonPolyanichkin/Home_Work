@@ -1,0 +1,43 @@
+body{
+	background-color: #333;
+	font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  margin: 20px 20px 20px 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+p {
+  margin: 10px 0px 20px 10px;
+  font-size: 25px;
+  font-weight: bold;
+  color: yellow;
+}
+a {
+  display: inline-block;
+  margin: 80px 0px 0px 30px;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  border: 2px solid #000000;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #ffe600;
+}
+img {
+	height: 150px;
+	width: auto;
+
+}
+button{
+	color: black;
+	background-color: yellow;
+	border-radius: 5px;
+	font-size: 20px;
+}
+button:hover{
+	transform: scale(1.1); 
+	transition: transform 0.3s ease;
+}
+img{
+	border-radius: 5px;
+	border: 3px solid yellow;
+}
